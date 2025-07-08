@@ -1,0 +1,159 @@
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>About GECK Kozhikode</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter&display=swap" rel="stylesheet">
+  <script src="https://kit.fontawesome.com/a2d9d5c6e8.js" crossorigin="anonymous"></script>
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f9f9f9;
+      color: #222;
+      overflow-x: hidden;
+    }
+    .container {
+      max-width: 960px;
+      margin: auto;
+      padding: 40px 20px;
+      text-align: center;
+      animation: fadeIn 1s ease-in-out;
+    }
+    h1 {
+      font-family: 'Playfair Display', serif;
+      color: #1a4f80;
+      font-size: 36px;
+      margin-bottom: 20px;
+    }
+    p {
+      line-height: 1.7;
+      font-size: 16px;
+      color: #444;
+      max-width: 800px;
+      margin: 0 auto 20px;
+    }
+    .btn-row {
+      margin-top: 40px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      justify-content: center;
+      animation: fadeInUp 1.2s ease-in-out;
+    }
+    .main-btn {
+      background-color: #1a4f80;
+      color: white;
+      padding: 16px 24px;
+      font-size: 16px;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .main-btn:hover {
+      background-color: #123a5f;
+      transform: scale(1.05);
+    }
+    @media (max-width: 600px) {
+      .main-btn {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+      }
+    }.floating-container {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  animation: fadeInRight 1.5s ease-in-out;
+}
+.floating-container a {
+  text-decoration: none;
+  padding: 14px 20px;
+  border-radius: 30px;
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+}
+.call-btn {
+  background-color: #007bff;
+}
+.chat-btn {
+  background-color: #25D366;
+}
+.floating-container a:hover {
+  transform: translateY(-2px) scale(1.05);
+  opacity: 0.95;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  0% {opacity: 0; transform: translateY(20px);}
+  100% {opacity: 1; transform: translateY(0);}
+}
+@keyframes fadeInUp {
+  0% {opacity: 0; transform: translateY(40px);}
+  100% {opacity: 1; transform: translateY(0);}
+}
+@keyframes fadeInRight {
+  0% {opacity: 0; transform: translateX(50px);}
+  100% {opacity: 1; transform: translateX(0);}
+}
+
+  </style>
+</head>
+<body>  <div class="container">
+    <h1>About Government Engineering College Kozhikode</h1><p>
+  Government Engineering College Kozhikode (GECK), established in 1999, is a premier institution under the Government of Kerala. It operates under the Department of Technical Education and is affiliated to APJ Abdul Kalam Technological University.
+</p>
+<p>
+  Located in West Hill, Kozhikode, GECK is known for its academic excellence, dedicated faculty, and vibrant student community. The campus houses modern laboratories, a central library, seminar halls, and active clubs that promote innovation and leadership.
+</p>
+<p>
+  The college offers undergraduate programs in six branches: AEI, Chemical, Mechanical, Civil, ECE, and CSD. It also hosts postgraduate programs and encourages research, industry collaboration, and entrepreneurship through IEDC and other initiatives.
+</p>
+
+<!-- 🔘 Button Row -->
+<div class="btn-row">
+  <a href="#" class="main-btn" id="deptBtn"><i class="fas fa-layer-group"></i>Departments</a>
+  <a href="https://maps.app.goo.gl/u3CZt8zX3YZnDVDM8?g_st=ac" target="_blank" class="main-btn"><i class="fas fa-map-marker-alt"></i>Location</a>
+  <a href="transportation.html" class="main-btn"><i class="fas fa-bus"></i>Transportation</a>
+  <a href="gallery.html" class="main-btn"><i class="fas fa-images"></i>Gallery</a>
+</div>
+
+<!-- 🌟 Popup for Departments -->
+<div class="btn-row" id="deptPopup" style="display:none;">
+  <a href="ece.html" class="main-btn">ECE</a>
+  <a href="csd.html" class="main-btn">CSD</a>
+  <a href="aei.html" class="main-btn">AEI</a>
+  <a href="ce.html" class="main-btn">CE</a>
+  <a href="me.html" class="main-btn">ME</a>
+  <a href="che.html" class="main-btn">CHE</a>
+</div>
+
+  </div>  <!-- 📞 Floating Contact Buttons -->  <div class="floating-container">
+    <a class="call-btn" href="tel:+919207671373"><i class="fas fa-phone-alt"></i> Call</a>
+    <a class="chat-btn" href="https://wa.me/919207671373" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+  </div>  <script>
+    const deptBtn = document.getElementById('deptBtn');
+    const deptPopup = document.getElementById('deptPopup');
+    deptBtn.addEventListener('click', () => {
+      deptPopup.style.display = deptPopup.style.display === 'flex' ? 'none' : 'flex';
+    });
+  </script></body>
+</html>
