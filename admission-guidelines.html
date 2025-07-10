@@ -6,19 +6,33 @@
   <title>Admission Guidelines – UDSF GECK</title>
   <link rel="stylesheet" href="css/styles.css"/>
   <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to bottom right, #f0f4ff, #ffffff);
+      margin: 0;
+      padding: 0;
+    }
+
     .btn {
       display: inline-block;
-      padding: 12px 20px;
-      background-color: #0077c2;
+      padding: 10px 18px;
+      background: linear-gradient(135deg, #009688, #00796b);
       color: white;
       text-decoration: none;
       border-radius: 10px;
-      font-weight: bold;
+      font-weight: 600;
       margin-top: 20px;
-      transition: background 0.3s;
+      transition: background 0.3s ease;
+      font-size: 0.95rem;
     }
+
     .btn:hover {
-      background-color: #005fa3;
+      background: linear-gradient(135deg, #00796b, #004d40);
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
     }
   </style>
 </head>
@@ -26,26 +40,35 @@
   <header>
     <div class="header-container">
       <a href="index.html" class="btn" style="position:absolute; left:20px; top:20px;">← Back</a>
-      
     </div>
   </header>
 
   <main>
-    <section class="card">
-      <p>Here you'll find all necessary information regarding KEAM admission procedures, documents required, and deadlines.</p>
+    <section style="padding: 70px 20px;">
+      <div style="max-width: 800px; margin: auto; background: #ffffff; padding: 40px 35px; border-radius: 20px; box-shadow: 0 18px 50px rgba(0, 0, 0, 0.06); position: relative;">
+        
+        <!-- Badge -->
+        <div style="position: absolute; top: -26px; left: 50%; transform: translateX(-50%); background: #FFD700; padding: 9px 24px; border-radius: 40px; font-weight: 600; box-shadow: 0 6px 18px rgba(0,0,0,0.12); font-size: 0.95rem; letter-spacing: 0.4px;">
+          🎓 KEAM Admission Guide
+        </div>
 
-      <ul>
-        <li>Bring your KEAM allotment memo</li>
-        <li>Original certificates (SSLC, Plus Two, TC, etc.)</li>
-        <li>Community/income/reservation certificates if applicable</li>
-        <li>Passport-size photographs, and more...</li>
-      </ul>
+        <!-- Title -->
+        <h2 style="font-family: 'Playfair Display', serif; font-size: 2.4rem; color: #0A1128; text-align: center; margin-top: 40px; margin-bottom: 25px;">
+          Admission Guidelines & Resources
+        </h2>
 
-      <p>Make sure you verify your category and rank eligibility before proceeding to branch preference selection.</p>
+        <!-- Paragraph -->
+        <p style="font-size: 1.05rem; line-height: 1.8; text-align: justify;">
+          As part of the KEAM admission process, it's essential to stay informed and well-prepared. Before joining, make sure to understand the flow of verification, familiarize yourself with required documents, and know how your KEAM rank and category affect your course eligibility. Our resources below will help you make informed decisions and ensure a smooth admission experience.
+        </p>
 
-      <!-- Button to Eligibility Checker -->
-       <a href="docs.html" class="btn">📄 Required Documents</a>
-      <a href="lastrank.html" class="btn">🎯 Check Your Eligibility</a>
+        <!-- Buttons -->
+        <div style="text-align: center; margin-top: 35px;">
+          <a href="docs.html" class="btn">📄 Required Documents</a>
+          <a href="lastrank.html" class="btn" style="margin-left: 12px;">🎯 Check Your Eligibility</a>
+        </div>
+
+      </div>
     </section>
   </main>
 

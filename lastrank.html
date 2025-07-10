@@ -6,63 +6,86 @@
   <title>KEAM 2024 Last Rank – GEC Kozhikode</title>
   <style>
     :root {
-      --primary: #0077c2;
-      --accent: #e0f2ff;
-      --bg: #f5faff;
-      --text: #0d2c54;
+      --primary: #0A1128;
+      --accent: #FFD700;
+      --bg: #f0f4ff;
       --white: #ffffff;
+      --text: #0A1128;
     }
+
     body {
       font-family: 'Segoe UI', sans-serif;
-      background-color: var(--bg);
-      padding: 20px;
+      background: linear-gradient(to bottom right, var(--bg), var(--white));
+      padding: 40px 20px;
       color: var(--text);
+      position: relative;
     }
+
+    .btn-back {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: var(--primary);
+      color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
     h1, h2 {
       text-align: center;
       margin: 5px 0;
       color: var(--primary);
     }
+
     table {
       width: 100%;
       border-collapse: separate;
       border-spacing: 0;
-      margin-top: 20px;
+      margin-top: 30px;
       background-color: var(--white);
-      border-radius: 15px;
+      border-radius: 16px;
       overflow: hidden;
       box-shadow: 0 4px 20px rgba(0,0,0,0.08);
     }
+
     th, td {
-      border: 1px solid #dcefff;
+      border: 1px solid #eee;
       text-align: center;
       padding: 14px;
       font-size: 15px;
     }
+
     th {
       background-color: var(--primary);
       color: white;
     }
+
     .legend {
-      margin-top: 30px;
+      margin-top: 40px;
       font-size: 15px;
       background-color: var(--white);
       padding: 20px;
-      border: 1px solid #c6def1;
+      border: 1px solid #d9d9d9;
       border-radius: 12px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     }
+
     .search-section {
-      margin-top: 40px;
+      margin-top: 60px;
       background: var(--white);
       padding: 30px;
-      border: 1px solid #a3c2e3;
+      border: 2px solid #e5e5e5;
       max-width: 600px;
       margin-inline: auto;
       border-radius: 20px;
       text-align: center;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.12);
+      box-shadow: 0 6px 24px rgba(0,0,0,0.08);
     }
+
     input, select, button {
       padding: 12px;
       margin: 12px 8px;
@@ -70,24 +93,29 @@
       border: 1px solid #ccc;
       border-radius: 10px;
     }
+
     select, input {
       width: 180px;
     }
+
     button {
-      background-color: var(--primary);
-      color: white;
+      background-color: var(--accent);
+      color: var(--primary);
+      font-weight: bold;
       border: none;
       cursor: pointer;
       transition: background 0.3s ease;
     }
+
     button:hover {
-      background-color: #005fa3;
+      background-color: #e6c200;
     }
+
     .result {
       margin-top: 25px;
-      background: var(--accent);
+      background: #fffbe6;
       padding: 25px;
-      border: 2px dashed var(--primary);
+      border: 2px dashed var(--accent);
       max-width: 600px;
       margin-inline: auto;
       border-radius: 18px;
@@ -95,11 +123,13 @@
       font-size: 17px;
       animation: fadeIn 0.4s ease-in-out;
     }
+
     ul {
       text-align: left;
       padding-left: 20px;
       margin-top: 10px;
     }
+
     @keyframes fadeIn {
       from { opacity: 0; transform: translateY(10px); }
       to { opacity: 1; transform: translateY(0); }
@@ -108,11 +138,15 @@
 </head>
 <body>
 
-  <h1>KEAM 2024 – Second Phase Last Rank</h1>
-  <h2>Government Engineering College Kozhikode (KKE)</h2>
+  <!-- Back Button -->
+  <a href="admission-guidelines.html" class="btn-back">← Back</a>
 
+  <h1>KEAM 2024 – Second Phase Last Rank</h1>
+  <h2>Government Engineering College Kozhikode (GEC KKD)</h2>
+
+  <!-- Eligibility Checker -->
   <div class="search-section">
-    <h3 style="color:#004d99; font-size: 20px;">🎯 Check Your Eligibility</h3>
+    <h3 style="color:#0A1128; font-size: 20px;">🎯 Check Your Eligibility</h3>
     <input type="number" id="rank" placeholder="Your KEAM Rank" />
     <select id="category">
       <option value="">Select Category</option>
@@ -126,6 +160,7 @@
     <div id="result" class="result" style="display:none;"></div>
   </div>
 
+  <!-- Rank Table -->
   <table>
     <thead>
       <tr>
@@ -141,6 +176,7 @@
     <tbody id="rankTable"></tbody>
   </table>
 
+  <!-- Legend -->
   <div class="legend">
     <strong>Branch Codes:</strong><br>
     EC – Electronics & Communication<br>
