@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AEI Department – GECK</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: #f4faff;
+      color: #1a1a1a;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+    header {
+      background: linear-gradient(to right, #0d3d66, #2a629a);
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+      animation: slideDown 1s ease-out;
+    }
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 42px;
+      margin-bottom: 12px;
+    }
+    header p {
+      font-size: 18px;
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+    .section {
+      max-width: 1100px;
+      margin: 50px auto;
+      padding: 0 20px;
+      animation: fadeUp 1s ease-out;
+    }
+    .section h2 {
+      color: #0d3d66;
+      font-size: 28px;
+      margin-bottom: 24px;
+    }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+    }
+    .card {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+      padding: 25px 22px;
+      transition: all 0.3s ease;
+      border-left: 6px solid #0d3d66;
+    }
+    .card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.12);
+      border-left-color: #2a629a;
+    }
+    .card h3 {
+      color: #2a629a;
+      margin-bottom: 10px;
+      font-size: 20px;
+    }
+    .card p, .card ul {
+      font-size: 15px;
+      line-height: 1.6;
+      margin: 0;
+      padding-left: 18px;
+    }
+    .card ul {
+      list-style: disc;
+      margin-top: 10px;
+    }
+    .back-button {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background: #0d3d66;
+      color: white;
+      padding: 10px 18px;
+      border-radius: 30px;
+      font-size: 14px;
+      text-decoration: none;
+      z-index: 1001;
+      transition: background 0.3s ease;
+    }
+    .back-button:hover {
+      background: #063144;
+    }
+    .contact-card {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #0d3d66;
+      color: white;
+      border-radius: 16px;
+      padding: 16px 20px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+      z-index: 1001;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    .contact-card:hover {
+      background: #2a629a;
+    }
+    #popup {
+      display: none;
+      position: fixed;
+      bottom: 100px;
+      right: 20px;
+      background: white;
+      padding: 22px 25px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      z-index: 1002;
+      width: 320px;
+      animation: slideUpFade 0.4s ease;
+    }
+    #popup h4 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #0d3d66;
+    }
+    .popup-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+    .vol-card {
+      background: #f3f9ff;
+      border: 2px solid #d0e6ff;
+      border-radius: 12px;
+      padding: 10px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+    .vol-card strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 14px;
+      color: #0d3d66;
+    }
+    .vol-icons a {
+      display: inline-block;
+      margin: 0 5px;
+      background: #0d3d66;
+      color: white;
+      border-radius: 50%;
+      padding: 8px;
+      font-size: 14px;
+      transition: background 0.3s;
+    }
+    .vol-icons a:hover {
+      background: #2a629a;
+    }
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 20px;
+      background: #0d3d66;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 28px;
+      height: 28px;
+      text-align: center;
+      line-height: 28px;
+      cursor: pointer;
+      transition: background 0.3s;
+      z-index: 1003;
+    }
+    .close-btn:hover {
+      background: #2a629a;
+    }
+    #overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      backdrop-filter: blur(5px);
+      background-color: rgba(0, 0, 0, 0.2);
+      z-index: 1000;
+    }
+    footer {
+      text-align: center;
+      padding: 30px;
+      background-color: #eaf4fd;
+      font-size: 14px;
+      color: #0d3d66;
+      margin-top: 80px;
+    }
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes slideDown { from { transform: translateY(-40px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+    @keyframes fadeUp { from { transform: translateY(30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+    @keyframes slideUpFade { from { transform: translateY(30px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+  </style>
+</head>
+<body>
+
+<a href="college.html" class="back-button">← Back</a>
+
+<header>
+  <h1>Department of Applied Electronics and Instrumentation</h1>
+  <p>The AEI Department at GECK Kozhikode focuses on core instrumentation, control, and automation domains. With state-of-the-art labs and skilled faculty, students graduate industry-ready with a strong interdisciplinary foundation.</p>
+</header>
+
+<div class="section">
+  <h2>Vision & Mission</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>Vision</h3>
+      <p>To be a center of excellence in Instrumentation and Automation education, nurturing professionals capable of contributing to modern industrial solutions through innovation and technical expertise.</p>
+    </div>
+    <div class="card">
+      <h3>Mission</h3>
+      <ul>
+        <li>Deliver quality education in applied electronics and instrumentation.</li>
+        <li>Promote hands-on training and industry-relevant skillsets.</li>
+        <li>Encourage innovation, lifelong learning, and professional ethics.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h2>Why Choose AEI?</h2>
+  <div class="cards">
+    <div class="card">
+      <h3>Industrial Relevance</h3>
+      <p>Focus on instrumentation, automation, sensors, and control systems highly valued in industries.</p>
+    </div>
+    <div class="card">
+      <h3>Project-Based Learning</h3>
+      <p>Practical, application-oriented projects ensure strong technical and problem-solving skills.</p>
+    </div>
+    <div class="card">
+      <h3>Wide Career Opportunities</h3>
+      <p>Graduates work in manufacturing, biomedical, aerospace, energy sectors, and core instrumentation fields.</p>
+    </div>
+  </div>
+</div>
+
+<div id="overlay" onclick="closePopup()"></div>
+
+<div class="contact-card" onclick="togglePopup()">
+  <h4>Need Help?</h4>
+  <p style="font-size: 13px; margin: 0;">Click to contact volunteers</p>
+</div>
+
+<div id="popup">
+  <span class="close-btn" onclick="closePopup()">×</span>
+  <h4>AEI Volunteers</h4>
+  <div class="popup-grid">
+    <div class="vol-card">
+      <strong>Farsin</strong>
+      <div class="vol-icons">
+        <a href="tel:+919947971399"><i class="fas fa-phone"></i></a>
+        <a href="https://wa.me/919947971399" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+    <div class="vol-card">
+      <strong>Sulaiman</strong>
+      <div class="vol-icons">
+        <a href="tel:+919745021320"><i class="fas fa-phone"></i></a>
+        <a href="https://wa.me/919745021320" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+    <div class="vol-card">
+      <strong>Jose</strong>
+      <div class="vol-icons">
+        <a href="tel:+918086096111"><i class="fas fa-phone"></i></a>
+        <a href="https://wa.me/918086096111" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+    <div class="vol-card">
+      <strong>Haitham</strong>
+      <div class="vol-icons">
+        <a href="tel:+919496409311"><i class="fas fa-phone"></i></a>
+        <a href="https://wa.me/919496409311" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  &copy; 2025 AEI Department – Government Engineering College Kozhikode
+</footer>
+
+<script>
+  function togglePopup() {
+    const popup = document.getElementById("popup");
+    const overlay = document.getElementById("overlay");
+    const isVisible = popup.style.display === "block";
+    popup.style.display = isVisible ? "none" : "block";
+    overlay.style.display = isVisible ? "none" : "block";
+    if (!isVisible) popup.style.animation = "slideUpFade 0.4s ease";
+  }
+  function closePopup() {
+    document.getElementById("popup").style.display = "none";
+    document.getElementById("overlay").style.display = "none";
+  }
+</script>
+
+</body>
+</html>

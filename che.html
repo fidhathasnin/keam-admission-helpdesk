@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chemical Engineering – GECK</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: #f0f8ff;
+      color: #1a1a1a;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+    header {
+      background: linear-gradient(to right, #003366, #336699);
+      color: white;
+      padding: 60px 20px;
+      text-align: center;
+    }
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 42px;
+      margin-bottom: 10px;
+    }
+    header p {
+      font-size: 18px;
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+    .section {
+      max-width: 1000px;
+      margin: 50px auto;
+      padding: 0 20px;
+    }
+    .section h2 {
+      color: #003366;
+      font-size: 26px;
+      margin-bottom: 20px;
+    }
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+    }
+    .card {
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      padding: 25px;
+      transition: transform 0.3s ease;
+    }
+    .card:hover {
+      transform: translateY(-6px);
+    }
+    .card h3 {
+      color: #336699;
+      margin-bottom: 10px;
+    }
+    .card p, .card ul {
+      font-size: 15px;
+      line-height: 1.6;
+    }
+    .card ul {
+      padding-left: 20px;
+      list-style-type: disc;
+    }
+    .contact-card {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #003366;
+      color: white;
+      border-radius: 16px;
+      padding: 16px 20px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+      cursor: pointer;
+      z-index: 1001;
+    }
+    .contact-card:hover {
+      background: #002244;
+    }
+    #popup {
+      display: none;
+      position: fixed;
+      bottom: 100px;
+      right: 20px;
+      background: white;
+      padding: 22px;
+      border-radius: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+      z-index: 1002;
+      width: 320px;
+    }
+    .popup-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+    }
+    .vol-card {
+      background: #f3f9ff;
+      border-radius: 12px;
+      padding: 10px;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    }
+    .vol-card strong {
+      display: block;
+      margin-bottom: 8px;
+    }
+    .vol-icons a {
+      display: inline-block;
+      margin: 0 5px;
+      background: #003366;
+      color: white;
+      border-radius: 50%;
+      padding: 8px;
+      font-size: 14px;
+    }
+    .close-btn {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 20px;
+      background: #003366;
+      color: white;
+      border-radius: 50%;
+      width: 28px;
+      height: 28px;
+      text-align: center;
+      line-height: 28px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Department of Chemical Engineering</h1>
+    <p>Empowering students to innovate sustainable processes for a cleaner and greener future. We blend chemical principles with modern technology to shape industry-ready engineers.</p>
+  </header>
+
+  <div class="section">
+    <h2>Vision & Mission</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Vision</h3>
+        <p>To become a center of excellence in chemical engineering education and research, fostering innovation for a sustainable world.</p>
+      </div>
+      <div class="card">
+        <h3>Mission</h3>
+        <ul>
+          <li>Deliver strong fundamentals in chemical engineering.</li>
+          <li>Encourage environmentally responsible and ethical practices.</li>
+          <li>Promote interdisciplinary research and industry collaboration.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Why Choose Chemical Engineering?</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Industrial Demand</h3>
+        <p>Work across petroleum, pharma, food, energy, and material sectors with high global relevance.</p>
+      </div>
+      <div class="card">
+        <h3>Sustainability Focus</h3>
+        <p>Drive innovations in green energy, pollution control, and waste management.</p>
+      </div>
+      <div class="card">
+        <h3>Research & Development</h3>
+        <p>Participate in transformative projects and gain experience through industry internships and academic research.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="contact-card" onclick="togglePopup()">
+    <h4>Need Help?</h4>
+    <p style="font-size: 13px; margin: 0;">Contact volunteers</p>
+  </div>
+
+  <div id="popup">
+    <span class="close-btn" onclick="closePopup()">×</span>
+    <h4>Chemical Volunteers</h4>
+    <div class="popup-grid">
+      <div class="vol-card">
+        <strong>Ayisha</strong>
+        <div class="vol-icons">
+          <a href="tel:+919995041814"><i class="fas fa-phone"></i></a>
+          <a href="https://wa.me/919995041814" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="vol-card">
+        <strong>Shinas</strong>
+        <div class="vol-icons">
+          <a href="tel:+917034332648"><i class="fas fa-phone"></i></a>
+          <a href="https://wa.me/917034332648" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="vol-card">
+        <strong>Shahanaz</strong>
+        <div class="vol-icons">
+          <a href="tel:+919995103155"><i class="fas fa-phone"></i></a>
+          <a href="https://wa.me/919995103155" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+      <div class="vol-card">
+        <strong>Ghyse</strong>
+        <div class="vol-icons">
+          <a href="tel:+917356364120"><i class="fas fa-phone"></i></a>
+          <a href="https://wa.me/917356364120" target="_blank"><i class="fab fa-whatsapp"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function togglePopup() {
+      const popup = document.getElementById("popup");
+      popup.style.display = popup.style.display === "block" ? "none" : "block";
+    }
+    function closePopup() {
+      document.getElementById("popup").style.display = "none";
+    }
+  </script>
+</body>
+</html>
