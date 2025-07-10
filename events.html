@@ -8,42 +8,50 @@
   <style>
     body {
       font-family: 'Inter', sans-serif;
-      background-color: #f9f9f9;
+      background-color: #f0f4f8;
       margin: 0;
-      padding: 20px;
+      padding: 40px 20px;
     }
+
     .container {
-      max-width: 900px;
+      max-width: 800px;
       margin: auto;
-    }
-    h1 {
       text-align: center;
-      color: #1a4f80;
-      margin-bottom: 30px;
     }
-    .video-links {
+
+    h1 {
+      color: #1a4f80;
+      margin-bottom: 40px;
+    }
+
+    .year-cards {
       display: flex;
       flex-wrap: wrap;
       gap: 20px;
       justify-content: center;
     }
-    .video-links a {
-      display: inline-block;
-      background: #eaf4ff;
-      color: #1a4f80;
-      padding: 14px 20px;
-      border-radius: 8px;
+
+    .year-card {
+      background: white;
+      border-radius: 12px;
+      padding: 30px;
+      width: 200px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
       text-decoration: none;
+      color: #1a4f80;
       font-weight: bold;
+      font-size: 18px;
       transition: 0.3s;
     }
-    .video-links a:hover {
-      background: #1a4f80;
+
+    .year-card:hover {
+      background-color: #1a4f80;
       color: white;
     }
+
     a.back {
       display: inline-block;
-      margin-bottom: 20px;
+      margin-top: 40px;
       text-decoration: none;
       color: #1a4f80;
       font-weight: bold;
@@ -52,14 +60,14 @@
 </head>
 <body>
   <div class="container">
-    <a href="index.html" class="back">← Back to Home</a>
-    <h1>🎥 UDSF Event Videos</h1>
-    <div class="video-links">
-      <a href="https://www.instagram.com/reel/EXAMPLE1/" target="_blank">College Fest Highlights</a>
-      <a href="https://www.instagram.com/reel/EXAMPLE2/" target="_blank">Freshers’ Day</a>
-      <a href="https://www.instagram.com/reel/EXAMPLE3/" target="_blank">Sports Day Moments</a>
-      <a href="https://www.instagram.com/reel/EXAMPLE4/" target="_blank">Cultural Night</a>
+    <h1>🎉 UDSF Events Gallery</h1>
+    <div class="year-cards">
+      <a class="year-card" href="gallery-2025.html">2025 Highlights</a>
+      <a class="year-card" href="gallery-2024.html">2024 Highlights</a>
+      <a class="year-card" href="gallery-2023.html">2023 Highlights</a>
+      <a class="year-card" href="gallery-2022.html">2022 Highlights</a>
     </div>
+    <a href="index.html" class="back">← Back to Home</a>
   </div>
 </body>
 </html>
