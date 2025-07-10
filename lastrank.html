@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>KEAM 2024 Last Rank – GEC Kozhikode</title>
+  <style>
+    :root {
+      --primary: #0077c2;
+      --accent: #e0f2ff;
+      --bg: #f5faff;
+      --text: #0d2c54;
+      --white: #ffffff;
+    }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--bg);
+      padding: 20px;
+      color: var(--text);
+    }
+    h1, h2 {
+      text-align: center;
+      margin: 5px 0;
+      color: var(--primary);
+    }
+    table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      margin-top: 20px;
+      background-color: var(--white);
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+    th, td {
+      border: 1px solid #dcefff;
+      text-align: center;
+      padding: 14px;
+      font-size: 15px;
+    }
+    th {
+      background-color: var(--primary);
+      color: white;
+    }
+    .legend {
+      margin-top: 30px;
+      font-size: 15px;
+      background-color: var(--white);
+      padding: 20px;
+      border: 1px solid #c6def1;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    }
+    .search-section {
+      margin-top: 40px;
+      background: var(--white);
+      padding: 30px;
+      border: 1px solid #a3c2e3;
+      max-width: 600px;
+      margin-inline: auto;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.12);
+    }
+    input, select, button {
+      padding: 12px;
+      margin: 12px 8px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+    }
+    select, input {
+      width: 180px;
+    }
+    button {
+      background-color: var(--primary);
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    button:hover {
+      background-color: #005fa3;
+    }
+    .result {
+      margin-top: 25px;
+      background: var(--accent);
+      padding: 25px;
+      border: 2px dashed var(--primary);
+      max-width: 600px;
+      margin-inline: auto;
+      border-radius: 18px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      font-size: 17px;
+      animation: fadeIn 0.4s ease-in-out;
+    }
+    ul {
+      text-align: left;
+      padding-left: 20px;
+      margin-top: 10px;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>KEAM 2024 – Second Phase Last Rank</h1>
+  <h2>Government Engineering College Kozhikode (KKE)</h2>
+
+  <div class="search-section">
+    <h3 style="color:#004d99; font-size: 20px;">🎯 Check Your Eligibility</h3>
+    <input type="number" id="rank" placeholder="Your KEAM Rank" />
+    <select id="category">
+      <option value="">Select Category</option>
+      <option>SM</option><option>EZ</option><option>MU</option><option>LA</option>
+      <option>BH</option><option>DV</option><option>VK</option><option>BX</option>
+      <option>KN</option><option>KU</option><option>SC</option><option>ST</option>
+      <option>EW</option><option>FW</option><option>SD</option>
+    </select>
+    <br />
+    <button onclick="checkEligibility()">Check</button>
+    <div id="result" class="result" style="display:none;"></div>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Category</th>
+        <th>EC</th>
+        <th>CH</th>
+        <th>CG</th>
+        <th>ME</th>
+        <th>AE</th>
+        <th>CE</th>
+      </tr>
+    </thead>
+    <tbody id="rankTable"></tbody>
+  </table>
+
+  <div class="legend">
+    <strong>Branch Codes:</strong><br>
+    EC – Electronics & Communication<br>
+    CH – Chemical Engineering<br>
+    CG – Computer Science & Design<br>
+    ME – Mechanical Engineering<br>
+    AE – Applied Electronics & Instrumentation<br>
+    CE – Civil Engineering
+  </div>
+
+  <script>
+    const lastRanks = {
+      SM: { EC:5044, CH:7778, CG:8853, ME:10842, AE:11712, CE:13207 },
+      EZ: { EC:8553, CH:13827, CG:10929, ME:19693, AE:17646, CE:16790 },
+      MU: { EC:8253, CH:11555, CG:9667, ME:18253, AE:15742, CE:17673 },
+      LA: { EC:14253, CH:22031, CG:18860, ME:32647, AE:49088, CE:45132 },
+      BH: { EC:8116, CH:13545, CG:10420, ME:14831, AE:21728, CE:20053 },
+      DV: { EC:23974, CH:18230, CG:28588, ME:45534, AE:33855, CE:40250 },
+      VK: { EC:8867, CH:15458, CG:11599, ME:19371, AE:15247, CE:14365 },
+      BX: { ME:27333, CE:41776 },
+      KN: { AE:50197 },
+      KU: {},
+      SC: { EC:38027, CH:43880, CG:34820, ME:47659, AE:52039, CE:45962 },
+      ST: { EC:52168, CG:50479, ME:40242, CE:47656 },
+      EW: { EC:11151, CH:24509, CG:13697, ME:21042, AE:34194, CE:33867 },
+      FW: { EC:4659, CH:9164, CG:7004, ME:10209, AE:11500, CE:10134 },
+      SD: { ME:35925 }
+    };
+
+    const branchNames = {
+      EC: "Electronics & Communication",
+      CH: "Chemical Engineering",
+      CG: "Computer Science & Design",
+      ME: "Mechanical Engineering",
+      AE: "Applied Electronics & Instrumentation",
+      CE: "Civil Engineering"
+    };
+
+    function checkEligibility() {
+      const rank = parseInt(document.getElementById('rank').value);
+      const category = document.getElementById('category').value.trim().toUpperCase();
+      const resultDiv = document.getElementById('result');
+      resultDiv.style.display = 'block';
+
+      if (!rank || !category || !lastRanks[category]) {
+        resultDiv.innerHTML = "❌ Please enter a valid rank and category.";
+        return;
+      }
+
+      const eligible = [];
+      for (const [branch, lastRank] of Object.entries(lastRanks[category])) {
+        if (rank <= lastRank) {
+          eligible.push(`${branch} – ${branchNames[branch]}`);
+        }
+      }
+
+      if (eligible.length === 0) {
+        resultDiv.innerHTML = `❌ Sorry, no eligible branches for rank ${rank} in category ${category}.`;
+      } else {
+        resultDiv.innerHTML = `<strong>✅ You are eligible for:</strong><ul>` + 
+          eligible.map(e => `<li>${e}</li>`).join('') + `</ul>`;
+      }
+    }
+
+    // Populate Table
+    const tbody = document.getElementById('rankTable');
+    for (const cat of Object.keys(lastRanks)) {
+      const row = document.createElement('tr');
+      row.innerHTML = `<td>${cat}</td>` + 
+        ['EC','CH','CG','ME','AE','CE'].map(branch => {
+          const val = lastRanks[cat][branch];
+          return `<td>${val !== undefined ? val : '-'}</td>`;
+        }).join('');
+      tbody.appendChild(row);
+    }
+  </script>
+</body>
+</html>
