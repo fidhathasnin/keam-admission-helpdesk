@@ -7,6 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Single:wght@100..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
   <!-- Fonts -->
  <link href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Single:wght@100..900&family=Bebas+Neue&family=Open+Sans&family=Poppins:wght@300;500;700&family=Raleway&display=swap" rel="stylesheet">
@@ -31,7 +32,7 @@
   border-radius: 20px;
   padding: 30px;
   margin-bottom: 20px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
   transition: all 0.3s ease;
 }
 
@@ -53,23 +54,73 @@ h2 {
   gap: 10px;
 }
 
+/* Updated .subcommittee styles */
 .subcommittee {
   flex: 1;
   padding: 12px 15px;
-  background-color: #111;
-  border: 1px solid #00b7ff;
+  background-color: #111111aa; /* transparent effect */
+  font-family: 'Poppins', sans-serif;
+  border: 1px solid #9ac8da;
   border-radius: 12px;
-  font-weight: 500;
-  color: #00b7ff;
+  font-weight: 600;
+  color: #84b7c0;
   cursor: pointer;
   transition: 0.3s;
   position: relative;
 }
 
 .subcommittee:hover {
-  background-color: #00b7ff;
+  background-color: #053041cc;
+  box-shadow: 0 0 12px #1f7a8a88;
   color: #fff;
 }
+
+/* Modal background overlay */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #00000088;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+/* Popup card */
+.event-section {
+  background-color: #111;
+  color: #84b7c0;
+  padding: 20px;
+  border: 1px solid #9ac8da;
+  border-radius: 16px;
+  width: 90%;
+  max-width: 500px;
+  position: relative;
+  box-shadow: 0 0 20px #1f7a8a88;
+}
+
+/* Close button */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  font-size: 20px;
+  color: #9ac8da;
+  cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
 
 .event-section {
   display: none;
@@ -597,7 +648,7 @@ body {
 
 
 </style>
-  </style>
+  
 </head>
 <body>
 <!-- 🌌 Star Background Elements -->
@@ -655,73 +706,90 @@ body {
 </p>
 
 
-
-
-
-      <div class="subcommittee-buttons">
-        <button class="subcommittee" onclick="showEvents('aptico')">Aptico</button>
-        <button class="subcommittee" onclick="showEvents('shilpi')" >Shilpi</button>
-        <button class="subcommittee" onclick="showEvents('thanal')"> Thanal</button>
-        <button class="subcommittee" onclick="showEvents('sahrdaya')"> Sahrdaya</button>
-      </div>
-    </div><div id="aptico-events" class="event-section fade-in">
-      <h3> Aptico</h3>
-      <p>An outreach initiative to develop aptitude and career skills through:</p>
-      <ul>
-        <li>Mock Aptitude Tests</li>
-        <li>Career Talks</li>
-        <li>Group Discussions</li>
-      </ul>
-    </div>
-
-  <div id="shilpi-events" class="event-section fade-in">
-  <h3> Shilpi</h3>
-  <p>An initiative to foster cultural and artistic skills through:</p>
-  <ul>
-    <li>Talent Hunts</li>
-     <li>On/Off-stage Events</li>
-    <li>Art Exhibitions</li>
-    
-   
-  </ul>
+<div class="subcommittee-buttons">
+  <button class="subcommittee" onclick="showEvents('aptico')">Aptico</button>
+  <button class="subcommittee" onclick="showEvents('shilpi')">Shilpi</button>
+  <button class="subcommittee" onclick="showEvents('thanal')">Thanal</button>
+  <button class="subcommittee" onclick="showEvents('sahrdaya')">Sahrdaya</button>
 </div>
 
-<div id="thanal-events" class="event-section fade-in">
-  <h3> Thanal</h3>
-  <p>
-    An initiative of UDSF GECK under the Thanal Educational and Charitable Society, Government Engineering College Kozhikode. <br>
-    <strong>#Be_the_reason_for_a_smile</strong><br>
-    Dedicated to charity and social outreach through:
-  </p>
-  <ul>
-    <li>Wellness Talks</li>
-    <li>Anonymous Helpline</li>
-    <li>Therapeutic Events</li>
-  </ul>
-</div>
+<div id="event-modal" class="modal-overlay" onclick="closeModal(event)">
+  <div id="aptico-events" class="event-section">
+    <span class="close-btn" onclick="closeModal(event)">×</span>
+    <h3>Aptico</h3>
+    <p>An outreach initiative to develop aptitude and career skills through:</p>
+    <ul>
+      <li>Mock Aptitude Tests</li>
+      <li>Career Talks</li>
+      <li>Group Discussions</li>
+    </ul>
+  </div>
 
-   
-   <div id="sahrdaya-events" class="event-section fade-in">
-  <h3> Sahrudhaya</h3> 
-  <p>
-    A women-led social outreach initiative under UDSF GECK, fostering empathy and empowerment through:
-  </p>
-  <ul>
-    <li>Charity Drives</li>
-    <li>Community Engagement Events</li>
-    <li>Environmental and Sustainability Initiatives</li>
-  </ul>
+  <div id="shilpi-events" class="event-section">
+    <span class="close-btn" onclick="closeModal(event)">×</span>
+    <h3>Shilpi</h3>
+    <p>An initiative to foster cultural and artistic skills through:</p>
+    <ul>
+      <li>Talent Hunts</li>
+      <li>On/Off-stage Events</li>
+      <li>Art Exhibitions</li>
+    </ul>
+  </div>
+
+  <div id="thanal-events" class="event-section">
+    <span class="close-btn" onclick="closeModal(event)">×</span>
+    <h3>Thanal</h3>
+    <p>An initiative of UDSF GECK under Thanal Educational and Charitable Society.</p>
+    <ul>
+      <li>Wellness Talks</li>
+      <li>Anonymous Helpline</li>
+      <li>Therapeutic Events</li>
+    </ul>
+  </div>
+
+  <div id="sahrdaya-events" class="event-section">
+    <span class="close-btn" onclick="closeModal(event)">×</span>
+    <h3>Sahrdaya</h3>
+    <p>A women-led social outreach initiative under UDSF GECK.</p>
+    <ul>
+      <li>Charity Drives</li>
+      <li>Community Engagement</li>
+      <li>Sustainability Initiatives</li>
+    </ul>
+  </div>
 </div>
 
 
-    <script>
-    function showEvents(id) {
-  // Hide all
-  document.querySelectorAll('.event-section').forEach(el => el.style.display = 'none');
-  // Show selected
+<script>
+function showEvents(id) {
+  // Show modal
+  document.getElementById('event-modal').style.display = 'flex';
+
+  // Hide all event sections
+  document.querySelectorAll('.event-section').forEach(el => {
+    el.style.display = 'none';
+  });
+
+  // Show selected one
   document.getElementById(id + '-events').style.display = 'block';
 }
+
+function closeModal(event) {
+  if (event.target.classList.contains('modal-overlay') || event.target.classList.contains('close-btn')) {
+    document.getElementById('event-modal').style.display = 'none';
+  }
+}
 </script>
+
+     
+
+
+
+
+
+
+
+
   </div>
 
 
