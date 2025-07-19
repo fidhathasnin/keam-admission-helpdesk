@@ -139,7 +139,7 @@ body {
   z-index: 0;
 }
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@600&family=Open+Sans:wght@400;600&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap');
 .about-udsf {
   text-align: center;
   max-width: 800px;
@@ -583,8 +583,12 @@ body {
   .btn { display:inline-block; background:#1f3b57; color:#fff; padding:12px 25px; margin:10px; border-radius:25px; text-decoration:none; transition: transform .3s; }
   .btn:hover { transform:scale(1.05); }
 
-
-
+.exo-2-initiatives {
+  font-family: "Exo 2", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400; /* You can adjust between 100–900 */
+  font-style: normal;
+}
 
 
 
@@ -596,13 +600,14 @@ body {
   </style>
 </head>
 <body>
- <!--   <div id="vanta-bg">-->  
-    <div class="stars"></div>
+<!-- 🌌 Star Background Elements -->
+<div class="stars"></div>
 <div class="shooting-star"></div>
 <div class="shooting-star"></div>
 <div class="shooting-star"></div>
 <div class="shooting-star"></div>
 <div class="shooting-star"></div>
+
 
     <header>
       <div class="header-container">
@@ -641,8 +646,18 @@ body {
 
  <div class="about-udsf">
       <h2>About UDSF GECK</h2>
-      <p>UDSF is GECK's student body, empowering voices, guiding freshers, and fostering unity through events and initiatives.</p>
-      <p>Our efforts are driven by four vibrant subcommittees:</p>
+     
+<p class="info-highlight" style="margin-bottom: 20px;">
+  UDSF, the student front of GECK, is a political alliance between KSU and MSF, supporting student development and campus unity.
+</p>
+<p class="exo-2-initiatives"></p>
+  Our efforts are driven by four vibrant subcommittees:
+</p>
+
+
+
+
+
       <div class="subcommittee-buttons">
         <button class="subcommittee" onclick="showEvents('aptico')">Aptico</button>
         <button class="subcommittee" onclick="showEvents('shilpi')" >Shilpi</button>
@@ -687,7 +702,7 @@ body {
 
    
    <div id="sahrdaya-events" class="event-section fade-in">
-  <h3> Sahrdaya</h3>
+  <h3> Sahrudhaya</h3> 
   <p>
     A women-led social outreach initiative under UDSF GECK, fostering empathy and empowerment through:
   </p>

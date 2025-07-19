@@ -1,39 +1,139 @@
-<!DOCTYPE html><html lang="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <title>About GEC Kozhikode</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- Fonts & Icons -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&family=Exo+2&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/a2d9d5c6e8.js" crossorigin="anonymous"></script>
+
   <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f9f9f9;
-      color: #222;
-      overflow-x: hidden;
-    }
+   body {
+  background: #0d1b2a;
+  font-family: 'Poppins', sans-serif;
+  color: #f0f0f0;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+  position: relative;
+  min-height: 100vh;
+}
+
+/* Make sure stars and shooting stars are behind everything */
+.stars, .shooting-star {
+  position: absolute;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: -1;
+}
+/* 🌠 Star background */
+.stars {
+  width: 1px;
+  height: 1px;
+  position: absolute;
+  background: white;
+  box-shadow: 
+    2vw 5vh 2px white, 10vw 8vh 2px white, 15vw 15vh 1px white,
+    22vw 22vh 1px white, 28vw 12vh 2px white, 32vw 32vh 1px white,
+    38vw 18vh 2px white, 42vw 35vh 1px white, 48vw 25vh 2px white,
+    53vw 42vh 1px white, 58vw 15vh 2px white, 63vw 38vh 1px white,
+    68vw 28vh 2px white, 73vw 45vh 1px white, 78vw 32vh 2px white,
+    83vw 48vh 1px white, 88vw 20vh 2px white, 93vw 52vh 1px white,
+    98vw 35vh 2px white, 5vw 60vh 1px white, 12vw 65vh 2px white,
+    18vw 72vh 1px white, 25vw 78vh 2px white, 30vw 85vh 1px white,
+    35vw 68vh 2px white, 40vw 82vh 1px white, 45vw 92vh 2px white,
+    50vw 75vh 1px white, 55vw 88vh 2px white, 60vw 95vh 1px white,
+    65vw 72vh 2px white, 70vw 85vh 1px white, 75vw 78vh 2px white,
+    80vw 92vh 1px white, 85vw 82vh 2px white, 90vw 88vh 1px white,
+    95vw 75vh 2px white;
+  animation: twinkle 8s infinite linear;
+  z-index: -1;
+}
+.stars::after {
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  background: white;
+  box-shadow:
+    8vw 12vh 2px white, 16vw 18vh 1px white, 24vw 25vh 2px white,
+    33vw 15vh 1px white, 41vw 28vh 2px white, 49vw 35vh 1px white,
+    57vw 22vh 2px white, 65vw 42vh 1px white, 73vw 28vh 2px white,
+    81vw 48vh 1px white, 89vw 32vh 2px white, 97vw 45vh 1px white,
+    3vw 68vh 2px white, 11vw 75vh 1px white, 19vw 82vh 2px white,
+    27vw 88vh 1px white, 35vw 72vh 2px white, 43vw 85vh 1px white,
+    51vw 92vh 2px white, 59vw 78vh 1px white;
+  animation: twinkle 6s infinite linear reverse;
+}
+
+/* 🌠 Shooting stars */
+.shooting-star {
+  position: absolute;
+  width: 100px;
+  height: 2px;
+  background: linear-gradient(90deg, white, transparent);
+  animation: shoot 3s infinite ease-in;
+  z-index: -1;
+}
+
+.shooting-star:nth-child(2) { top: 20%; left: -100px; animation-delay: 0s; }
+.shooting-star:nth-child(3) { top: 35%; left: -100px; animation-delay: 1s; }
+.shooting-star:nth-child(4) { top: 50%; left: -100px; animation-delay: 2s; }
+.shooting-star:nth-child(5) { top: 65%; left: -100px; animation-delay: 3s; }
+.shooting-star:nth-child(6) { top: 80%; left: -100px; animation-delay: 4s; }
+
+/* ✨ Animations */
+@keyframes twinkle {
+  0%, 100% { opacity: 0.8; }
+  50% { opacity: 0.4; }
+}
+
+@keyframes shoot {
+  0% {
+    transform: translateX(0) translateY(0) rotate(25deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(120vw) translateY(50vh) rotate(25deg);
+    opacity: 0;
+  }
+}
+
+
+
+
+
+
     .container {
-      max-width: 960px;
-      margin: auto;
-      padding: 40px 20px;
+      max-width: 900px;
+      margin: 80px auto;
+      padding: 30px;
+      border-radius: 20px;
+     background: rgba(0, 0, 0, 0.5); /* Adjust opacity */
+  backdrop-filter: blur(6px);
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
       text-align: center;
-      animation: fadeIn 1s ease-in-out;
     }
+
     h1 {
       font-family: 'Playfair Display', serif;
-      color: #1a4f80;
+      color: #00ffff;
       font-size: 36px;
       margin-bottom: 20px;
     }
+
     p {
       line-height: 1.7;
       font-size: 16px;
-      color: #444;
+      color: #d4d4d4;
       max-width: 800px;
       margin: 0 auto 20px;
     }
+
     .btn-row {
       margin-top: 40px;
       display: flex;
@@ -42,13 +142,14 @@
       justify-content: center;
       animation: fadeInUp 1.2s ease-in-out;
     }
+
     .main-btn {
-      background-color: #1a4f80;
+      background: linear-gradient(145deg, #001f3f, #004080);
       color: white;
-      padding: 16px 24px;
+      padding: 14px 22px;
       font-size: 16px;
       border: none;
-      border-radius: 10px;
+      border-radius: 12px;
       cursor: pointer;
       font-weight: bold;
       transition: all 0.3s ease;
@@ -56,119 +157,160 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
+      box-shadow: 0 5px 15px rgba(0, 255, 255, 0.2);
     }
+
     .main-btn:hover {
-      background-color: #123a5f;
+      background: linear-gradient(145deg, #004080, #001f3f);
       transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.4);
     }
+
+    .floating-container {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      z-index: 999;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      animation: fadeInRight 1.5s ease-in-out;
+    }
+
+    .floating-container a {
+      text-decoration: none;
+      padding: 14px 20px;
+      border-radius: 30px;
+      color: white;
+      font-size: 16px;
+      font-weight: bold;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 4px 10px rgba(0, 255, 255, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .call-btn {
+      background-color: #007bff;
+    }
+
+    .chat-btn {
+      background-color: #25D366;
+    }
+
+    .floating-container a:hover {
+      transform: translateY(-2px) scale(1.05);
+      opacity: 0.95;
+    }
+
+    .back-button {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background: #004080;
+      color: white;
+      padding: 10px 18px;
+      border-radius: 30px;
+      font-size: 14px;
+      text-decoration: none;
+      z-index: 1001;
+      transition: background 0.3s ease;
+    }
+
+    .back-button:hover {
+      background: #001f3f;
+    }
+
+    /* Animations */
+    @keyframes fadeInUp {
+      0% {opacity: 0; transform: translateY(40px);}
+      100% {opacity: 1; transform: translateY(0);}
+    }
+
+    @keyframes fadeInRight {
+      0% {opacity: 0; transform: translateX(50px);}
+      100% {opacity: 1; transform: translateX(0);}
+    }
+
+    .content-card {
+      background: rgba(0, 0, 0, 0.4);
+      padding: 30px;
+      border-radius: 15px;
+      margin-bottom: 30px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+    }
+
+    .content-card h1 {
+      font-family: 'Exo 2', sans-serif;
+      font-size: 2.5em;
+      margin-bottom: 10px;
+      color: #00ffff;
+    }
+
+    .content-card p {
+      font-size: 1.1em;
+      color: #d4d4d4;
+    }
+
     @media (max-width: 600px) {
       .main-btn {
         width: 100%;
-        text-align: center;
         justify-content: center;
       }
-    }.floating-container {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 999;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  animation: fadeInRight 1.5s ease-in-out;
-}
-.floating-container a {
-  text-decoration: none;
-  padding: 14px 20px;
-  border-radius: 30px;
-  color: white;
-  font-size: 16px;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-  transition: all 0.3s ease;
-}
-.call-btn {
-  background-color: #007bff;
-}
-.chat-btn {
-  background-color: #25D366;
-}
-.floating-container a:hover {
-  transform: translateY(-2px) scale(1.05);
-  opacity: 0.95;
-}
-.back-button {
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  background: #1a4f80;
-  color: white;
-  padding: 10px 18px;
-  border-radius: 30px;
-  font-size: 14px;
-  text-decoration: none;
-  z-index: 1001;
-  transition: background 0.3s ease;
-}
-.back-button:hover {
-  background: #123a5f;
-}
-
-/* Animations */
-@keyframes fadeIn {
-  0% {opacity: 0; transform: translateY(20px);}
-  100% {opacity: 1; transform: translateY(0);}
-}
-@keyframes fadeInUp {
-  0% {opacity: 0; transform: translateY(40px);}
-  100% {opacity: 1; transform: translateY(0);}
-}
-@keyframes fadeInRight {
-  0% {opacity: 0; transform: translateX(50px);}
-  100% {opacity: 1; transform: translateX(0);}
-}
-
+    }
   </style>
 </head>
-<body> 
+
+<body>
+<!-- 🌌 Star Background Elements -->
+<div class="stars"></div>
+<div class="shooting-star"></div>
+<div class="shooting-star"></div>
+<div class="shooting-star"></div>
+<div class="shooting-star"></div>
+<div class="shooting-star"></div>
+
   <a href="index.html" class="back-button">← Back</a>
- <div class="container">
-    <h1>About Government Engineering College Kozhikode</h1><p>
-  Government Engineering College Kozhikode (GECK), established in 1999, is a premier institution under the Government of Kerala. It operates under the Department of Technical Education and is affiliated to APJ Abdul Kalam Technological University.
-</p>
-<p>
-  Located in West Hill, Kozhikode, GECK is known for its academic excellence, dedicated faculty, and vibrant student community. The campus houses modern laboratories, a central library, seminar halls, and active clubs that promote innovation and leadership.
-</p>
-<p>
-  The college offers undergraduate programs in six branches: AEI, Chemical, Mechanical, Civil, ECE, and CSD. It also hosts postgraduate programs and encourages research, industry collaboration, and entrepreneurship through IEDC and other initiatives.
-</p>
 
-<!-- 🔘 Button Row -->
-<div class="btn-row">
-  <a href="#" class="main-btn" id="deptBtn"><i class="fas fa-layer-group"></i>Departments</a>
-  <a href="https://maps.app.goo.gl/u3CZt8zX3YZnDVDM8?g_st=ac" target="_blank" class="main-btn"><i class="fas fa-map-marker-alt"></i>Location</a>
-  <a href="transportation.html" class="main-btn"><i class="fas fa-bus"></i>Transportation</a>
-  <a href="gallery.html" class="main-btn"><i class="fas fa-images"></i>Gallery</a>
-</div>
+  <div class="container">
+    <h1>About Government Engineering College Kozhikode</h1>
 
-<!-- 🌟 Popup for Departments -->
-<div class="btn-row" id="deptPopup" style="display:none;">
-  <a href="ece.html" class="main-btn">ECE</a>
-  <a href="csd.html" class="main-btn">CSD</a>
-  <a href="aei.html" class="main-btn">AEI</a>
-  <a href="ce.html" class="main-btn">CE</a>
-  <a href="me.html" class="main-btn">ME</a>
-  <a href="che.html" class="main-btn">CHE</a>
-</div>
+    <p>
+      Government Engineering College Kozhikode (GECK), established in 1999, is a premier institution under the Government of Kerala. It operates under the Department of Technical Education and is affiliated to APJ Abdul Kalam Technological University.
+    </p>
+    <p>
+      Located in West Hill, Kozhikode, GECK is known for its academic excellence, dedicated faculty, and vibrant student community. The campus houses modern laboratories, a central library, seminar halls, and active clubs that promote innovation and leadership.
+    </p>
+    <p>
+      The college offers undergraduate programs in six branches: AEI, Chemical, Mechanical, Civil, ECE, and CSD. It also hosts postgraduate programs and encourages research, industry collaboration, and entrepreneurship through IEDC and other initiatives.
+    </p>
 
-    <script>
+    <!-- 🔘 Button Row -->
+    <div class="btn-row">
+      <a href="#" class="main-btn" id="deptBtn"><i class="fas fa-layer-group"></i>Departments</a>
+      <a href="https://maps.app.goo.gl/u3CZt8zX3YZnDVDM8?g_st=ac" target="_blank" class="main-btn"><i class="fas fa-map-marker-alt"></i>Location</a>
+      <a href="transportation.html" class="main-btn"><i class="fas fa-bus"></i>Transportation</a>
+      <a href="gallery.html" class="main-btn"><i class="fas fa-images"></i>Gallery</a>
+    </div>
+
+    <!-- 🌟 Popup for Departments -->
+    <div class="btn-row" id="deptPopup" style="display:none;">
+      <a href="ece.html" class="main-btn">ECE</a>
+      <a href="csd.html" class="main-btn">CSD</a>
+      <a href="aei.html" class="main-btn">AEI</a>
+      <a href="ce.html" class="main-btn">CE</a>
+      <a href="me.html" class="main-btn">ME</a>
+      <a href="che.html" class="main-btn">CHE</a>
+    </div>
+  </div>
+
+  <script>
     const deptBtn = document.getElementById('deptBtn');
     const deptPopup = document.getElementById('deptPopup');
-    deptBt`n.addEventListener('click', () => {
+    deptBtn.addEventListener('click', () => {
       deptPopup.style.display = deptPopup.style.display === 'flex' ? 'none' : 'flex';
     });
-  </script></body>
+  </script>
+</body>
 </html>
