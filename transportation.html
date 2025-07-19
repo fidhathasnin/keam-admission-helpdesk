@@ -6,67 +6,190 @@
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/a2d9d5c6e8.js" crossorigin="anonymous"></script>
   <style>
-    body {
-      font-family: 'Inter', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: #f0f7ff;
-      color: #222;
-      animation: fadeIn 0.8s ease-out;
-    }
-    .container {
-      max-width: 850px;
-      margin: auto;
-      padding: 40px 20px;
-    }
-    a.back {
-      display: inline-block;
-      margin-bottom: 20px;
-      text-decoration: none;
-      color: #1a4f80;
-      font-weight: bold;
-    }
-    a.back:hover { text-decoration: underline; }
-    h1 {
-      font-family: 'Playfair Display', serif;
-      color: #1a4f80;
-      font-size: 32px;
-      margin-bottom: 20px;
-      text-align: center;
-    }
-    section {
-      margin-bottom: 30px;
-      background: white;
-      padding: 20px;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-      animation: fadeInUp 1s ease-out;
-    }
-    h2 {
-      color: #1a4f80;
-      margin-bottom: 10px;
-      font-size: 20px;
-    }
-    p, ul {
-      font-size: 15px;
-      color: #333;
-      line-height: 1.6;
-      margin-bottom: 10px;
-    }
-    ul { padding-left: 20px; }
-    li::marker { color: #1a4f80; }@keyframes fadeIn {
-  0% {opacity: 0;} 100% {opacity: 1;}
+body {
+  font-family: 'Inter', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #0d1b2a;
+  color: #f0f0f0;
+  animation: fadeIn 0.8s ease-out;
+  min-height: 100vh;
 }
+
+.container {
+  max-width: 850px;
+  margin: auto;
+  padding: 40px 20px;
+}
+
+a.back {
+  display: inline-block;
+  margin-bottom: 20px;
+  text-decoration: none;
+  color: #00ffff;
+  font-weight: bold;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 10px 16px;
+  border-radius: 30px;
+  transition: background 0.3s;
+}
+
+a.back:hover {
+  background: #003344;
+  text-decoration: none;
+}
+
+h1 {
+  font-family: 'Playfair Display', serif;
+  color: #9fb6b6;
+  font-size: 32px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+section {
+  margin-bottom: 30px;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 8px 20px rgba(0, 255, 255, 0.1);
+  animation: fadeInUp 1s ease-out;
+  backdrop-filter: blur(5px);
+}
+
+h2 {
+  color: #a6b9cf;
+  margin-bottom: 12px;
+  font-size: 20px;
+  border-left: 4px solid #00ffff;
+  padding-left: 10px;
+}
+
+p, ul {
+  font-size: 15px;
+  color: #d4d4d4;
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+
+ul {
+  padding-left: 20px;
+}
+
+li::marker {
+  color: #00ffff;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  0% {opacity: 0;}
+  100% {opacity: 1;}
+}
+
 @keyframes fadeInUp {
   0% {opacity: 0; transform: translateY(20px);}
   100% {opacity: 1; transform: translateY(0);}
 }
+.stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+}
 
+
+
+
+
+
+.stars::after {
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  background: white;
+  box-shadow:
+    8vw 12vh 2px white, 16vw 18vh 1px white, 24vw 25vh 2px white,
+    33vw 15vh 1px white, 41vw 28vh 2px white, 49vw 35vh 1px white,
+    57vw 22vh 2px white, 65vw 42vh 1px white, 73vw 28vh 2px white,
+    81vw 48vh 1px white, 89vw 32vh 2px white, 97vw 45vh 1px white,
+    3vw 68vh 2px white, 11vw 75vh 1px white, 19vw 82vh 2px white,
+    27vw 88vh 1px white, 35vw 72vh 2px white, 43vw 85vh 1px white,
+    51vw 92vh 2px white, 59vw 78vh 1px white;
+  animation: twinkle 6s infinite linear reverse;
+}
+
+/* Shooting stars */
+.shooting-star {
+  position: absolute;
+  width: 100px;
+  height: 2px;
+  background: linear-gradient(90deg, white, transparent);
+  animation: shoot 3s infinite ease-in;
+  z-index: -1;
+}
+
+.shooting-star:nth-child(2) {
+  top: 20%;
+  left: -100px;
+  animation-delay: 0s;
+}
+
+.shooting-star:nth-child(3) {
+  top: 35%;
+  left: -100px;
+  animation-delay: 1s;
+}
+
+.shooting-star:nth-child(4) {
+  top: 50%;
+  left: -100px;
+  animation-delay: 2s;
+}
+
+.shooting-star:nth-child(5) {
+  top: 65%;
+  left: -100px;
+  animation-delay: 3s;
+}
+
+.shooting-star:nth-child(6) {
+  top: 80%;
+  left: -100px;
+  animation-delay: 4s;
+}
+
+/* Animations */
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+@keyframes shoot {
+  0% {
+    transform: translateX(0) translateY(0) rotate(25deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(120vw) translateY(50vh) rotate(25deg);
+    opacity: 0;
+  }
+}
+
+
+
+  
   </style>
 </head>
 <body>  <div class="container">
-    <a href="about.html" class="back">← Back to About</a>
-    <h1>Transportation to GECK Kozhikode</h1><section>
+    <a href=" college.html" class="back">← Back to About</a> 
+    <h1>Transportation to GEC Kozhikode</h1><section>
   <h2>📍 Nearest Railway Stations</h2>
   <ul>
     <li><strong>Kozhikode Railway Station</strong> – approx. 5 km (10–15 min by road)</li>
@@ -99,5 +222,16 @@
   </ul>
 </section>
 
-  </div></body>
+  </div>
+<!-- 🌌 Star Background -->
+<div class="stars"></div>
+<div class="shooting-star"></div>
+<div class="shooting-star"></div>
+<div class="shooting-star"></div>
+<div class="shooting-star"></div>
+<div class="shooting-star"></div>
+
+
+
+</body>
 </html>
