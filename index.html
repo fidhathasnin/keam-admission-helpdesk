@@ -4,9 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>KEAM Admission Helpdesk | UDSF GECK</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Single:wght@100..900&display=swap" rel="stylesheet">
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Raleway&display=swap" rel="stylesheet">
+ <link href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Single:wght@100..900&family=Bebas+Neue&family=Open+Sans&family=Poppins:wght@300;500;700&family=Raleway&display=swap" rel="stylesheet">
 
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
@@ -16,6 +19,121 @@
       padding: 0;
       box-sizing: border-box;
     }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  min-height: 100vh;
+  background: linear-gradient(to bottom, #0b0b2b, #1b2735 70%, #090a0f);
+  overflow-x: hidden;
+  position: relative;
+  z-index: 0;
+}
+
+/* Star background */
+.stars {
+  width: 1px;
+  height: 1px;
+  position: absolute;
+  background: white;
+  box-shadow: 
+    2vw 5vh 2px white, 10vw 8vh 2px white, 15vw 15vh 1px white,
+    22vw 22vh 1px white, 28vw 12vh 2px white, 32vw 32vh 1px white,
+    38vw 18vh 2px white, 42vw 35vh 1px white, 48vw 25vh 2px white,
+    53vw 42vh 1px white, 58vw 15vh 2px white, 63vw 38vh 1px white,
+    68vw 28vh 2px white, 73vw 45vh 1px white, 78vw 32vh 2px white,
+    83vw 48vh 1px white, 88vw 20vh 2px white, 93vw 52vh 1px white,
+    98vw 35vh 2px white, 5vw 60vh 1px white, 12vw 65vh 2px white,
+    18vw 72vh 1px white, 25vw 78vh 2px white, 30vw 85vh 1px white,
+    35vw 68vh 2px white, 40vw 82vh 1px white, 45vw 92vh 2px white,
+    50vw 75vh 1px white, 55vw 88vh 2px white, 60vw 95vh 1px white,
+    65vw 72vh 2px white, 70vw 85vh 1px white, 75vw 78vh 2px white,
+    80vw 92vh 1px white, 85vw 82vh 2px white, 90vw 88vh 1px white,
+    95vw 75vh 2px white;
+  animation: twinkle 8s infinite linear;
+  z-index: -1;
+}
+
+.stars::after {
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  background: white;
+  box-shadow:
+    8vw 12vh 2px white, 16vw 18vh 1px white, 24vw 25vh 2px white,
+    33vw 15vh 1px white, 41vw 28vh 2px white, 49vw 35vh 1px white,
+    57vw 22vh 2px white, 65vw 42vh 1px white, 73vw 28vh 2px white,
+    81vw 48vh 1px white, 89vw 32vh 2px white, 97vw 45vh 1px white,
+    3vw 68vh 2px white, 11vw 75vh 1px white, 19vw 82vh 2px white,
+    27vw 88vh 1px white, 35vw 72vh 2px white, 43vw 85vh 1px white,
+    51vw 92vh 2px white, 59vw 78vh 1px white;
+  animation: twinkle 6s infinite linear reverse;
+}
+
+/* Shooting stars */
+.shooting-star {
+  position: absolute;
+  width: 100px;
+  height: 2px;
+  background: linear-gradient(90deg, white, transparent);
+  animation: shoot 3s infinite ease-in;
+  z-index: -1;
+}
+
+.shooting-star:nth-child(2) {
+  top: 20%;
+  left: -100px;
+  animation-delay: 0s;
+}
+
+.shooting-star:nth-child(3) {
+  top: 35%;
+  left: -100px;
+  animation-delay: 1s;
+}
+
+.shooting-star:nth-child(4) {
+  top: 50%;
+  left: -100px;
+  animation-delay: 2s;
+}
+
+.shooting-star:nth-child(5) {
+  top: 65%;
+  left: -100px;
+  animation-delay: 3s;
+}
+
+.shooting-star:nth-child(6) {
+  top: 80%;
+  left: -100px;
+  animation-delay: 4s;
+}
+
+/* Animations */
+@keyframes twinkle {
+  0%, 100% {
+    opacity: 0.8;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+@keyframes shoot {
+  0% {
+    transform: translateX(0) translateY(0) rotate(25deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(120vw) translateY(50vh) rotate(25deg);
+    opacity: 0;
+  }
+}
 
     body {
       font-family: 'Poppins', sans-serif;
@@ -37,6 +155,19 @@
       position: relative;
       z-index: 1;
     }
+.bitcount-heading {
+  font-family: "Bitcount Grid Single", system-ui;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings:
+    "slnt" 0,
+    "CRSV" 0.5,
+    "ELSH" 0,
+    "ELXP" 0;
+  color: #b1e7ef;
+  font-size: 4rem; /* You can change this value */
+}
 
     header {
       text-align: center;
@@ -55,7 +186,7 @@
     }
 
     h1, h2, h3 {
-      color: #078497; /* Teal/Navy */
+      color: #4e848c; /* Teal/Navy */
     }
 
     .card, .contact-card {
@@ -122,6 +253,41 @@
       color: #aaa;
     }
 
+    .welcome-card {
+  text-align: center;
+  padding-top: 10px;
+}
+
+.tagline {
+  margin-top: -20px;
+  font-family: 'Raleway', sans-serif;
+  font-size: 1rem;
+  font-style: italic;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+  color: #5d7b8c;
+}
+
+.info-wrapper {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.info-highlight {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 1.1rem;
+  color: #cfd8dc;
+  margin: 0;
+}
+
+.info-subtext {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1rem;
+  color: #cfd8dc;
+  margin-top: 6px; /* Small vertical space between lines */
+}
+
+
     /* Responsive */
     @media (max-width: 600px) {
       .btn {
@@ -132,7 +298,14 @@
   </style>
 </head>
 <body>
-  <div id="vanta-bg">
+ <!--   <div id="vanta-bg">-->  
+    <div class="stars"></div>
+<div class="shooting-star"></div>
+<div class="shooting-star"></div>
+<div class="shooting-star"></div>
+<div class="shooting-star"></div>
+<div class="shooting-star"></div>
+
     <header>
       <div class="header-container">
         <img src="images/logo.png" alt="UDSF GECK Logo" class="logo" />
@@ -142,20 +315,24 @@
 
     <main>
       <!-- Welcome Section -->
-      <section class="card" style="text-align: center;">
-        <h2 style="font-family: 'Bebas Neue', sans-serif; font-size: 3rem; letter-spacing: 1.5px; color: #00d1d1;">
-          Welcome to GECK
-        </h2>
-        <p style="margin-top: 15px; font-family: 'Raleway', sans-serif; font-size: 1rem;">
-          Congratulations on reaching this milestone through KEAM. Your dedication has brought you here, and we’re proud to welcome you.
-        </p>
-        <p style="font-family: 'Raleway', sans-serif;">
-          This helpdesk by UDSF GECK is here to support you through the admission process at Government Engineering College Kozhikode.
-        </p>
-        <p style="font-family: 'Raleway', sans-serif;">
-          Explore the sections below for key information, and feel free to contact our student volunteers anytime.
-        </p>
-      </section>
+      <section class="card welcome-card">
+  <h1 class="bitcount-heading">Welcome to GECK</h1>
+   <p class="tagline">
+    Your place to learn, lead, and belong
+  </p>
+<div class="info-wrapper">
+  <p class="info-highlight">
+    Your KEAM admission journey made easier—with UDSF GECK.
+  </p>
+  <p class="info-subtext">
+    Explore the sections below for key information, and feel free to contact our student volunteers anytime.
+  </p>
+</div>
+
+ 
+
+</section>
+
 
       <!-- Navigation Buttons -->
       <div class="button-group">
@@ -164,15 +341,15 @@
       </div>
 
       <!-- About UDSF Section -->
-      <section class="card">
-        <h2>About UDSF GECK</h2>
-        <p>UDSF (United Democratic Students' Front) at Government Engineering College Kozhikode is a vibrant student organization committed to the overall growth and support of the student community.</p>
-        <p>We aim to foster unity, inclusivity, and empowerment through educational, cultural, and social initiatives. UDSF serves as a bridge between students and administration, ensuring every voice is heard and valued.</p>
-        <p>From guiding freshers to hosting events and addressing student needs, UDSF GECK is here to make your college journey meaningful and memorable.</p>
-        <div style="text-align: center; margin-top: 20px;">
-          <a href="events.html" class="btn">📽️ View Our Events</a>
-        </div>
-      </section>
+    <section class="card">
+  <h2>About UDSF GECK</h2>
+  <p>UDSF is GECK's student body, empowering voices, guiding freshers, and fostering unity through events and initiatives.</p>
+  <p>Our efforts are driven by four vibrant subcommittees: <strong>Aptico</strong> (Aptitude & Academics), <strong>Shilpi</strong> (Arts & Culture), <strong>Sahrdaya</strong> (Social Outreach), and <strong>Thanal</strong> (Mental Health & Support).</p>
+  <div style="text-align: center; margin-top: 20px;">
+    <a href="events.html" class="btn">📽️ View Our Events</a>
+  </div>
+</section>
+
 
       <!-- Contact Section -->
       <section class="contact-card">
@@ -190,24 +367,9 @@
     <footer>
       <p>&copy; UDSF GECK</p>
     </footer>
-  </div>
+
 
   <!-- VANTA Background Scripts -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vanta@0.5.24/dist/vanta.net.min.js"></script>
-  <script>
-    VANTA.NET({
-      el: "#vanta-bg",
-      mouseControls: true,
-      touchControls: true,
-      gyroControls: false,
-      minHeight: 200.00,
-      minWidth: 200.00,
-      scale: 1.00,
-      scaleMobile: 1.00,
-      color: 0x078497,
-      backgroundColor: 0x000000
-    });
-  </script>
+
 </body>
 </html>
