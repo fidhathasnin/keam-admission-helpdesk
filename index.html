@@ -32,6 +32,39 @@ body {
   position: relative;
   z-index: 0;
 }
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@600&family=Open+Sans:wght@400;600&display=swap');
+
+.about-udsf {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px 20px;
+  background: #0c0f1a;
+  color: #f0f0f0;
+  border-radius: 16px;
+  box-shadow: 0 0 20px rgba(0, 102, 204, 0.2);
+  font-family: 'Open Sans', sans-serif;
+}
+
+.about-udsf h2 {
+  font-family: 'Raleway', sans-serif;
+  font-size: 2.2em;
+  margin-bottom: 15px;
+  color: #00aaff;
+}
+
+.about-description,
+.about-committees {
+  font-size: 1.05em;
+  line-height: 1.8;
+  margin: 10px 0;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.about-committees strong {
+  font-family: 'Raleway', sans-serif;
+  color: #1dd3f8;
+}
 
 /* Star background */
 .stars {
@@ -56,6 +89,59 @@ body {
   animation: twinkle 8s infinite linear;
   z-index: -1;
 }
+.volunteer-section {
+  text-align: center;
+  margin: 50px auto 30px;
+}
+
+.volunteer-title {
+  font-family: 'Poppins', sans-serif;
+  color: #ffffff;
+  font-size: 1.6rem;
+  margin-bottom: 25px;
+}
+
+.volunteer-cards {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.volunteer-card {
+  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+  padding: 20px 25px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  width: 220px;
+  color: #ffffff;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.volunteer-card h4 {
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.3rem;
+  margin-bottom: 8px;
+}
+
+.volunteer-card a {
+  color: #91e2ff;
+  text-decoration: none;
+  font-size: 1rem;
+  transition: color 0.3s;
+}
+
+.volunteer-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
+}
+
+.volunteer-card a:hover {
+  color: #ffffff;
+}
+
+
+
 
 .stars::after {
   content: "";
@@ -295,6 +381,69 @@ body {
         margin: 10px auto;
       }
     }
+
+   
+  .subcommittees-container {
+    text-align: center;
+    padding: 40px 20px;
+    background: #0b0f1a;
+    color: #fff;
+  }
+
+  .button-row {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+
+  .sub-btn {
+    background-color: #1e2a3a;
+    color: #fff;
+    border: 2px solid #5c9ded;
+    padding: 10px 25px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    position: relative;
+  }
+
+  .sub-btn:hover {
+    background-color: #5c9ded;
+    color: #000;
+    transform: scale(1.05);
+  }
+
+  .event-section {
+    display: none;
+    margin-top: 30px;
+    background: #141d2b;
+    padding: 20px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .event-section ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+  }
+
+  .event-section ul li {
+    padding: 5px 0;
+    font-size: 16px;
+  }
+
+  .event-section h3 {
+    color: #66b2ff;
+    margin-bottom: 10px;
+  }
+</style>
   </style>
 </head>
 <body>
@@ -315,7 +464,7 @@ body {
 
     <main>
       <!-- Welcome Section -->
-      <section class="card welcome-card">
+      <section class="about-udsf">
   <h1 class="bitcount-heading">Welcome to GECK</h1>
    <p class="tagline">
     Your place to learn, lead, and belong
@@ -341,27 +490,122 @@ body {
       </div>
 
       <!-- About UDSF Section -->
-    <section class="card">
+<section class="about-udsf">
   <h2>About UDSF GECK</h2>
-  <p>UDSF is GECK's student body, empowering voices, guiding freshers, and fostering unity through events and initiatives.</p>
-  <p>Our efforts are driven by four vibrant subcommittees: <strong>Aptico</strong> (Aptitude & Academics), <strong>Shilpi</strong> (Arts & Culture), <strong>Sahrdaya</strong> (Social Outreach), and <strong>Thanal</strong> (Mental Health & Support).</p>
+  <p class="about-description">
+    UDSF is GECK's student body, empowering voices, guiding freshers, and fostering unity through events and initiatives.
+  </p>
+
+ <div class="subcommittees-container">
+  <h2>Explore Our Subcommittees</h2>
+  <div class="button-row">
+    <button class="sub-btn" data-target="aptico" title="Aptitude & Academics">Aptico</button>
+    <button class="sub-btn" data-target="shilpi" title="Arts & Culture">Shilpi</button>
+    <button class="sub-btn" data-target="sahrdaya" title="Social Outreach">Sahrdaya</button>
+    <button class="sub-btn" data-target="thanal" title="Mental Health & Support">Thanal</button>
+  </div>
+
+  <!-- Event Containers -->
+  <div id="aptico" class="event-section">
+    <h3>📘 Aptico Events</h3>
+    <ul>
+      <li>Mock Aptitude Tests</li>
+      <li>Career Talks</li>
+      <li>Group Discussions</li>
+    </ul>
+  </div>
+  <div id="shilpi" class="event-section">
+    <h3>🎨 Shilpi Events</h3>
+    <ul>
+      <li>Art & Craft Competitions</li>
+      <li>On-stage Performances</li>
+      <li>Workshops</li>
+    </ul>
+  </div>
+  <div id="sahrdaya" class="event-section">
+    <h3>🌍 Sahrdaya Events</h3>
+    <ul>
+      <li>Food Kit Drives</li>
+      <li>Blood Donation Camp</li>
+      <li>Charity Events</li>
+    </ul>
+  </div>
+  <div id="thanal" class="event-section">
+    <h3>🧠 Thanal Events</h3>
+    <ul>
+      <li>Mindfulness Sessions</li>
+      <li>Peer Support Groups</li>
+      <li>Mental Health Awareness</li>
+    </ul>
+  </div>
+</div>
+<script>
+  const buttons = document.querySelectorAll(".sub-btn");
+  const sections = document.querySelectorAll(".event-section");
+
+  buttons.forEach(button => {
+    button.addEventListener("click", () => {
+      const targetId = button.getAttribute("data-target");
+      sections.forEach(section => {
+        if (section.id === targetId) {
+          section.style.display = section.style.display === "block" ? "none" : "block";
+        } else {
+          section.style.display = "none";
+        }
+      });
+    });
+  });
+</script>
+
+  <div id="event-display" class="event-box"></div>
+
+
+
+
+
   <div style="text-align: center; margin-top: 20px;">
     <a href="events.html" class="btn">📽️ View Our Events</a>
+    
+    <!-- Social Media Links -->
+    <div class="social-links" style="margin-top: 20px;">
+         <a href="mailto:udsfgeck@gmail.com" target="_blank" style="margin: 0 10px;">
+        <img src="https://cdn-icons-png.flaticon.com/512/732/732200.png" alt="Gmail" width="30" height="30">
+      </a>
+      <a href="https://www.instagram.com/udsfgeck" target="_blank" style="margin: 0 10px;">
+        <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" width="30" height="30">
+      </a>
+      <a href="https://www.facebook.com/" target="_blank" style="margin: 0 10px;">
+        <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" width="30" height="30">
+      </a>
+      <a href="https://www.linkedin.com/" target="_blank" style="margin: 0 10px;">
+        <img src="https://cdn-icons-png.flaticon.com/512/3536/3536505.png" alt="LinkedIn" width="30" height="30">
+      </a>
+    </div>
   </div>
 </section>
 
 
       <!-- Contact Section -->
-      <section class="contact-card">
-        <h3>Contact Us</h3>
-        <p>Reach out for any help or queries:</p>
-        <ul>
-          <li>Email: <a href="mailto:geckudsf@gmail.com">geckudsf@gmail.com</a></li>
-          <li>Phone: +91-9961869013</li>
-          <li>WhatsApp: <a href="https://wa.me/919961869013">Chat on WhatsApp</a></li>
-          <li>Instagram: <a href="https://www.instagram.com/udsfgeck" target="_blank">Follow us on Instagram</a></li>
-        </ul>
-      </section>
+ <section class="volunteer-section">
+  <h3 class="volunteer-title">Meet Our Student Volunteers</h3>
+  <div class="volunteer-cards">
+    <div class="volunteer-card">
+      <h4>Farsin</h4>
+      <p><a href="tel:+919496482846">📞 +91-9496482846</a></p>
+    </div>
+    <div class="volunteer-card">
+      <h4>Fidha Thasni</h4>
+      <p><a href="tel:+919072801844">📞 +91-9072801844</a></p>
+    </div>
+    <div class="volunteer-card">
+      <h4>Aanjaleena</h4>
+      <p><a href="tel:+917356876434">📞 +91-7356876434</a></p>
+    </div>
+  </div>
+</section>
+
+
+
     </main>
 
     <footer>
