@@ -12,6 +12,112 @@
  <link href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Single:wght@100..900&family=Bebas+Neue&family=Open+Sans&family=Poppins:wght@300;500;700&family=Raleway&display=swap" rel="stylesheet">
 
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap');
+    body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #0d0f1a;
+  color: #e0e0e0;
+}
+
+.container {
+  max-width: 900px;
+  margin: 30px auto;
+  padding: 20px;
+}
+
+.card {
+  background: linear-gradient(135deg, #111827, #1f2937);
+  border-radius: 20px;
+  padding: 30px;
+  margin-bottom: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
+}
+
+h2 {
+  color: #00b7ff;
+  margin-bottom: 10px;
+}
+
+.subcommittee-buttons {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin-top: 15px;
+  gap: 10px;
+}
+
+.subcommittee {
+  flex: 1;
+  padding: 12px 15px;
+  background-color: #111;
+  border: 1px solid #00b7ff;
+  border-radius: 12px;
+  font-weight: 500;
+  color: #00b7ff;
+  cursor: pointer;
+  transition: 0.3s;
+  position: relative;
+}
+
+.subcommittee:hover {
+  background-color: #00b7ff;
+  color: #fff;
+}
+
+.event-section {
+  display: none;
+  background: #0c0f1a; /* Match about-udsf background */
+  color: #f0f0f0;
+  padding: 40px 20px;
+  margin-top: 20px;
+  border-radius: 16px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 0 20px rgba(0, 102, 204, 0.2); /* Match the same glow */
+  font-family: 'Open Sans', sans-serif;
+  text-align: center;
+}
+
+.event-section h3 {
+  color: #3399ff; /* Match the theme of about-udsf or your site's primary blue */
+}
+
+.event-section ul {
+  margin-top: 10px;
+  padding-left: 20px;
+  list-style: square;
+  color: #ddd;
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 0.6s ease-out forwards;
+}
+
+.fade-in.delay-1 {
+  animation-delay: 0.3s;
+}
+
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+    /* Add this to your CSS */
+
+
     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap');
 
     * {
@@ -47,11 +153,13 @@ body {
 }
 
 .about-udsf h2 {
-  font-family: 'Raleway', sans-serif;
-  font-size: 2.2em;
-  margin-bottom: 15px;
+   font-family: 'Exo 2', sans-serif;
+  font-size: 36px;
+  font-weight: 700;
   color: #b1e7ef;
+  margin-bottom: 20px;
 }
+
 
 .about-description,
 .about-committees {
@@ -443,6 +551,47 @@ body {
     color: #66b2ff;
     margin-bottom: 10px;
   }
+
+* { margin:0; padding:0; box-sizing:border-box; }
+  body { background: linear-gradient(135deg,#000,#0d1b2a); color:#fff; font-family:'Poppins',sans-serif; overflow-x:hidden; }
+  .container { max-width:900px; margin:auto; padding:20px; }
+
+  .card { background:#0c0f1a; border-radius:16px; padding:30px; margin:20px 0; box-shadow:0 0 20px rgba(0,102,204,0.2); text-align:center; }
+
+  h1.bitcount-heading, h2.bitcount-heading { font-family:'Bitcount Grid Single'; color:#b1e7ef; margin-bottom:15px; }
+  .tagline { font-family:'Raleway'; font-style:italic; color:#5d7b8c; margin-bottom:15px; }
+  .info-highlight { font-family:'Open Sans'; font-size:1.1rem; margin-bottom:6px; }
+  .info-subtext { font-family:'Open Sans'; font-size:1rem; color:#cfd8dc; }
+
+  .subcommittees { display:flex; justify-content:space-around; flex-wrap:wrap; margin:30px 0; }
+  .sub-card { width:200px; background:#1e2a3a; border-radius:12px; padding:15px; margin:10px; cursor:pointer;
+    transition:transform .3s, box-shadow .3s; position:relative;
+  }
+  .sub-card:hover { transform:translateY(-5px); box-shadow:0 6px 15px rgba(0,0,0,0.5); }
+  .sub-card h3 { margin-bottom:8px; color:#5c9ded; }
+  .sub-card .overlay {
+    position:absolute; top:0; left:0; width:100%; height:100%; background:rgba(12,15,26,0.95);
+    color:#fff; display:flex; flex-direction:column; justify-content:center; align-items:center;
+    padding:15px; border-radius:12px; opacity:0; transition:opacity .3s;
+  }
+  .sub-card.show .overlay { opacity:1; }
+
+  .overlay ul { list-style:none; text-align:left; }
+  .overlay li { margin:5px 0; font-size:0.95rem; }
+
+  .btn-group { text-align:center; margin:20px 0; }
+  .btn { display:inline-block; background:#1f3b57; color:#fff; padding:12px 25px; margin:10px; border-radius:25px; text-decoration:none; transition: transform .3s; }
+  .btn:hover { transform:scale(1.05); }
+
+
+
+
+
+
+
+
+
+
 </style>
   </style>
 </head>
@@ -489,73 +638,91 @@ body {
         <a href="admission-guidelines.html" class="btn">Admission Guidelines</a>
       </div>
 
-      <!-- About UDSF Section -->
-<section class="about-udsf">
-  <h2>About UDSF GECK</h2>
-  <p class="about-description">
-    UDSF is GECK's student body, empowering voices, guiding freshers, and fostering unity through events and initiatives.
-  </p>
 
- <div class="subcommittees-container">
-  <h2>Explore Our Subcommittees</h2>
-  <div class="button-row">
-    <button class="sub-btn" data-target="aptico" title="Aptitude & Academics">Aptico</button>
-    <button class="sub-btn" data-target="shilpi" title="Arts & Culture">Shilpi</button>
-    <button class="sub-btn" data-target="sahrdaya" title="Social Outreach">Sahrdaya</button>
-    <button class="sub-btn" data-target="thanal" title="Mental Health & Support">Thanal</button>
-  </div>
+ <div class="about-udsf">
+      <h2>About UDSF GECK</h2>
+      <p>UDSF is GECK's student body, empowering voices, guiding freshers, and fostering unity through events and initiatives.</p>
+      <p>Our efforts are driven by four vibrant subcommittees:</p>
+      <div class="subcommittee-buttons">
+        <button class="subcommittee" onclick="showEvents('aptico')">Aptico</button>
+        <button class="subcommittee" onclick="showEvents('shilpi')" >Shilpi</button>
+        <button class="subcommittee" onclick="showEvents('thanal')"> Thanal</button>
+        <button class="subcommittee" onclick="showEvents('sahrdaya')"> Sahrdaya</button>
+      </div>
+    </div><div id="aptico-events" class="event-section fade-in">
+      <h3> Aptico</h3>
+      <p>An outreach initiative to develop aptitude and career skills through:</p>
+      <ul>
+        <li>Mock Aptitude Tests</li>
+        <li>Career Talks</li>
+        <li>Group Discussions</li>
+      </ul>
+    </div>
 
-  <!-- Event Containers -->
-  <div id="aptico" class="event-section">
-    <h3>📘 Aptico Events</h3>
-    <ul>
-      <li>Mock Aptitude Tests</li>
-      <li>Career Talks</li>
-      <li>Group Discussions</li>
-    </ul>
-  </div>
-  <div id="shilpi" class="event-section">
-    <h3>🎨 Shilpi Events</h3>
-    <ul>
-      <li>Art & Craft Competitions</li>
-      <li>On-stage Performances</li>
-      <li>Workshops</li>
-    </ul>
-  </div>
-  <div id="sahrdaya" class="event-section">
-    <h3>🌍 Sahrdaya Events</h3>
-    <ul>
-      <li>Food Kit Drives</li>
-      <li>Blood Donation Camp</li>
-      <li>Charity Events</li>
-    </ul>
-  </div>
-  <div id="thanal" class="event-section">
-    <h3>🧠 Thanal Events</h3>
-    <ul>
-      <li>Mindfulness Sessions</li>
-      <li>Peer Support Groups</li>
-      <li>Mental Health Awareness</li>
-    </ul>
-  </div>
+  <div id="shilpi-events" class="event-section fade-in">
+  <h3> Shilpi</h3>
+  <p>An initiative to foster cultural and artistic skills through:</p>
+  <ul>
+    <li>Talent Hunts</li>
+     <li>On/Off-stage Events</li>
+    <li>Art Exhibitions</li>
+    
+   
+  </ul>
 </div>
-<script>
-  const buttons = document.querySelectorAll(".sub-btn");
-  const sections = document.querySelectorAll(".event-section");
 
-  buttons.forEach(button => {
-    button.addEventListener("click", () => {
-      const targetId = button.getAttribute("data-target");
-      sections.forEach(section => {
-        if (section.id === targetId) {
-          section.style.display = section.style.display === "block" ? "none" : "block";
-        } else {
-          section.style.display = "none";
-        }
-      });
-    });
-  });
+<div id="thanal-events" class="event-section fade-in">
+  <h3> Thanal</h3>
+  <p>
+    An initiative of UDSF GECK under the Thanal Educational and Charitable Society, Government Engineering College Kozhikode. <br>
+    <strong>#Be_the_reason_for_a_smile</strong><br>
+    Dedicated to charity and social outreach through:
+  </p>
+  <ul>
+    <li>Wellness Talks</li>
+    <li>Anonymous Helpline</li>
+    <li>Therapeutic Events</li>
+  </ul>
+</div>
+
+   
+   <div id="sahrdaya-events" class="event-section fade-in">
+  <h3> Sahrdaya</h3>
+  <p>
+    A women-led social outreach initiative under UDSF GECK, fostering empathy and empowerment through:
+  </p>
+  <ul>
+    <li>Charity Drives</li>
+    <li>Community Engagement Events</li>
+    <li>Environmental and Sustainability Initiatives</li>
+  </ul>
+</div>
+
+
+    <script>
+    function showEvents(id) {
+  // Hide all
+  document.querySelectorAll('.event-section').forEach(el => el.style.display = 'none');
+  // Show selected
+  document.getElementById(id + '-events').style.display = 'block';
+}
 </script>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      <!-- About UDSF Section -->
 
   <div id="event-display" class="event-box"></div>
 
@@ -591,15 +758,15 @@ body {
   <div class="volunteer-cards">
     <div class="volunteer-card">
       <h4>Farsin</h4>
-      <p><a href="tel:+919496482846">📞 +91-9496482846</a></p>
+      <p><a href="tel:+919496482846">📞 +91-9947971399
     </div>
     <div class="volunteer-card">
       <h4>Fidha Thasni</h4>
-      <p><a href="tel:+919072801844">📞 +91-9072801844</a></p>
+      <p><a href="tel:+919961869013">📞 +91-9961869013  </a></p>      
     </div>
     <div class="volunteer-card">
       <h4>Aanjaleena</h4>
-      <p><a href="tel:+917356876434">📞 +91-7356876434</a></p>
+        <p><a href="tel:+919207671373">📞 +91-9207671373</a></p>
     </div>
   </div>
 </section>
