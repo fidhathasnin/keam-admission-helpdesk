@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GECK Gallery | UDSF</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #0b0f1a;
+      color: #e0f7fa;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2rem;
+      color: #a5d8ff;
+      margin: 40px 0 10px;
+    }
+
+    p.description {
+      text-align: center;
+      max-width: 750px;
+      margin: 0 auto 30px;
+      color: #b0bec5;
+      font-size: 1rem;
+      padding: 0 20px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 15px;
+      padding: 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .gallery img {
+      width: 100%;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      border: 2px solid #1e88e5;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.03);
+    }
+
+    .overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(6px);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .overlay img {
+      max-width: 90%;
+      max-height: 90%;
+      border-radius: 15px;
+      box-shadow: 0 0 30px rgba(0, 174, 255, 0.4);
+    }
+
+    .overlay:active {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Gallery: Life at GECK</h1>
+  <p class="description">Snapshots of our vibrant campus — from student life and events to everyday memories that define GECK.</p>
+
+  <div class="gallery">
+    <img src="https://source.unsplash.com/400x300/?college,campus" alt="Campus Image" onclick="zoom(this)">
+    <img src="https://source.unsplash.com/400x300/?students,university" alt="Student Life" onclick="zoom(this)">
+    <img src="https://source.unsplash.com/400x300/?engineering,laboratory" alt="Lab Work" onclick="zoom(this)">
+    <img src="https://source.unsplash.com/400x300/?fest,college" alt="College Fest" onclick="zoom(this)">
+    <img src="https://source.unsplash.com/400x300/?education,group" alt="Classroom" onclick="zoom(this)">
+    <img src="https://source.unsplash.com/400x300/?youth,event" alt="Event Crowd" onclick="zoom(this)">
+    <img src="https://source.unsplash.com/400x300/?hostel,students" alt="Hostel Life" onclick="zoom(this)">
+    <img src="https://source.unsplash.com/400x300/?library,college" alt="Library" onclick="zoom(this)">
+  </div>
+
+  <div class="overlay" id="overlay" onclick="closeZoom()">
+    <img id="zoomedImg" src="" alt="Zoomed Image">
+  </div>
+
+  <script>
+    function zoom(imgElement) {
+      const overlay = document.getElementById('overlay');
+      const zoomedImg = document.getElementById('zoomedImg');
+      zoomedImg.src = imgElement.src;
+      overlay.style.display = 'flex';
+    }
+
+    function closeZoom() {
+      document.getElementById('overlay').style.display = 'none';
+    }
+  </script>
+
+</body>
+</html>

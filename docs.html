@@ -1,152 +1,272 @@
-<section style="padding: 80px 20px; background: linear-gradient(to bottom right, #f0f4ff, #ffffff);">
-  <div style="max-width: 980px; margin: auto; background: #ffffff; padding: 60px 30px; border-radius: 24px; box-shadow: 0 25px 60px rgba(0, 0, 0, 0.1); position: relative;">
-    <a href="admission-guidelines.html" style="position: absolute; top: -50px; left: 0; background: #0A1128; color: white; padding: 10px 20px; border-radius: 8px; font-size: 0.95rem; text-decoration: none; font-family: 'Inter', sans-serif; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">← Back to Admissions</a><div style="position: absolute; top: -40px; left: 50%; transform: translateX(-50%); background: #FFD700; padding: 14px 34px; border-radius: 50px; font-weight: bold; font-family: 'Inter', sans-serif; box-shadow: 0 8px 20px rgba(0,0,0,0.15); font-size: 1.2rem; letter-spacing: 0.5px;">
-  🎓 KEAM Admission Guide
-</div>
-<h2 style="font-family: 'Playfair Display', serif; font-size: 3rem; color: #0A1128; text-align: center; margin-top: 60px; margin-bottom: 40px;">Documents Required for KEAM Admission</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>KEAM Admission Guide</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(to bottom, #0b0b2b, #1b2735 70%, #090a0f);
+      color: #0A1128;
+    }
 
-<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px;">
-  <div style="background: #f9fafc; border-left: 5px solid #FFD700; padding: 20px; border-radius: 16px; box-shadow: 0 6px 20px rgba(0,0,0,0.05);">
-    <h4 style="margin-top: 0; color: #0A1128;">KEAM Essentials</h4>
-    <ul style="margin: 0; padding-left: 20px; line-height: 1.7;">
-      <li>Allotment Memo</li>
-      <li>Admit Card</li>
-      <li>Data Sheet</li>
-    </ul>
+    .stars {
+      position: relative;
+      min-height: 100vh;
+      overflow: hidden;
+      z-index: 0;
+    }
+
+    .stars::after {
+      content: "";
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      background: white;
+      box-shadow:
+        8vw 12vh 2px white, 16vw 18vh 1px white, 24vw 25vh 2px white,
+        33vw 15vh 1px white, 41vw 28vh 2px white, 49vw 35vh 1px white,
+        57vw 22vh 2px white, 65vw 42vh 1px white, 73vw 28vh 2px white,
+        81vw 48vh 1px white, 89vw 32vh 2px white, 97vw 45vh 1px white,
+        3vw 68vh 2px white, 11vw 75vh 1px white, 19vw 82vh 2px white,
+        27vw 88vh 1px white, 35vw 72vh 2px white, 43vw 85vh 1px white,
+        51vw 92vh 2px white, 59vw 78vh 1px white;
+      animation: twinkle 6s infinite linear reverse;
+      z-index: 1;
+    }
+
+    .shooting-star {
+      position: absolute;
+      width: 100px;
+      height: 2px;
+      background: linear-gradient(90deg, white, transparent);
+      animation: shoot 3s infinite ease-in;
+      z-index: 1;
+    }
+
+    .shooting-star:nth-child(2) { top: 20%; left: -100px; animation-delay: 0s; }
+    .shooting-star:nth-child(3) { top: 35%; left: -100px; animation-delay: 1s; }
+    .shooting-star:nth-child(4) { top: 50%; left: -100px; animation-delay: 2s; }
+    .shooting-star:nth-child(5) { top: 65%; left: -100px; animation-delay: 3s; }
+    .shooting-star:nth-child(6) { top: 80%; left: -100px; animation-delay: 4s; }
+
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.8; }
+      50% { opacity: 0.4; }
+    }
+
+    @keyframes shoot {
+      0% {
+        transform: translateX(0) translateY(0) rotate(25deg);
+        opacity: 1;
+      }
+      100% {
+        transform: translateX(120vw) translateY(50vh) rotate(25deg);
+        opacity: 0;
+      }
+    }
+
+    .keam-section {
+      padding: 80px 20px;
+      position: relative;
+      z-index: 2;
+      max-width: 980px;
+      margin: auto;
+    }
+
+    .back-link {
+      position: absolute;
+      top: -50px;
+      left: 0;
+      background: #0A1128;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      text-decoration: none;
+      font-family: 'Inter', sans-serif;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .section-title {
+      position: absolute;
+      top: -40px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #FFD700;
+      padding: 14px 34px;
+      border-radius: 50px;
+      font-weight: bold;
+      font-family: 'Inter', sans-serif;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+      font-size: 1.2rem;
+      letter-spacing: 0.5px;
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.8rem;
+      color: #fff;
+      text-align: center;
+      margin-top: 80px;
+      margin-bottom: 40px;
+    }
+
+    h4 {
+      margin-top: 0;
+      color: #0A1128;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.07);
+      border-left: 5px solid #FFD700;
+      padding: 20px;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+      color: #fff;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
+      color: #fff;
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: left;
+    }
+
+    thead tr {
+      background-color: #0A1128;
+      color: white;
+    }
+
+    tbody tr:nth-child(even) {
+      background: rgba(255, 255, 255, 0.05);
+    }
+
+    tbody tr:nth-child(odd) {
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    tbody tr:last-child {
+      font-weight: bold;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="stars">
+    <section class="keam-section">
+      <a href="admission-guidelines.html" class="back-link">← Back to Admissions</a>
+      <div class="section-title">🎓 KEAM Admission Guide</div>
+
+      <h2>Documents Required for KEAM Admission</h2>
+
+      <div class="card-grid">
+        <div class="card">
+          <h4>KEAM Essentials</h4>
+          <ul>
+            <li>Allotment Memo</li>
+            <li>Admit Card</li>
+            <li>Data Sheet</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4>Academic Records</h4>
+          <ul>
+            <li>SSLC / 10th Certificate</li>
+            <li>Plus Two Certificates</li>
+            <li>Marklists</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4>Institutional Certificates</h4>
+          <ul>
+            <li>Transfer Certificate</li>
+            <li>Conduct Certificate</li>
+            <li>Migration Certificate (if applicable)</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4>Category / Income</h4>
+          <ul>
+            <li>Community Certificate</li>
+            <li>Income Certificate</li>
+            <li>Non-Creamy Layer (if applicable)</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h4>Personal</h4>
+          <ul>
+            <li>Passport-size Photos (4+)</li>
+            <li>Original Uploaded Docs</li>
+            <li>Fee Payment Receipt</li>
+            <li>Physical Fitness Certificate</li>
+          </ul>
+        </div>
+      </div>
+
+      <h2>💰 Fee Structure (At the Time of Admission)</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th style="text-align: right;">General</th>
+            <th style="text-align: right;">SC/ST/OEC</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Tuition Fee</td><td style="text-align:right;">₹6,300</td><td style="text-align:right;">–</td></tr>
+          <tr><td>Admission Fee</td><td style="text-align:right;">₹240</td><td style="text-align:right;">–</td></tr>
+          <tr><td>Special Fee</td><td style="text-align:right;">₹1,740</td><td style="text-align:right;">–</td></tr>
+          <tr><td>PD/AD</td><td style="text-align:right;">₹370</td><td style="text-align:right;">–</td></tr>
+          <tr><td>Caution Deposit</td><td style="text-align:right;">₹1,000</td><td style="text-align:right;">₹1,000</td></tr>
+          <tr><td>Bus Fee</td><td style="text-align:right;">₹1,300</td><td style="text-align:right;">₹1,300</td></tr>
+          <tr><td>Students Administration Fee (KTU)</td><td style="text-align:right;">₹1,050</td><td style="text-align:right;">–</td></tr>
+          <tr><td>Arts & Sports Fee (KTU)</td><td style="text-align:right;">₹530</td><td style="text-align:right;">–</td></tr>
+          <tr><td>Affiliation Fee</td><td style="text-align:right;">₹750</td><td style="text-align:right;">–</td></tr>
+          <tr><td>Total</td><td style="text-align:right;">₹13,280</td><td style="text-align:right;">₹2,300</td></tr>
+        </tbody>
+      </table>
+
+      <h2>📌 Additional Institutional Fees</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Item</th>
+            <th style="text-align: right;">Amount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>PTA Fund</td><td style="text-align:right;">₹6,500</td></tr>
+          <tr><td>Co-operative Membership</td><td style="text-align:right;">₹210</td></tr>
+          <tr><td>Students Welfare Fund</td><td style="text-align:right;">₹2,300</td></tr>
+          <tr><td>Alumni Fund</td><td style="text-align:right;">₹1,000</td></tr>
+          <tr><td>Total</td><td style="text-align:right;">₹10,010</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- Shooting Stars -->
+    <div class="shooting-star"></div>
+    <div class="shooting-star"></div>
+    <div class="shooting-star"></div>
+    <div class="shooting-star"></div>
+    <div class="shooting-star"></div>
   </div>
-
-  <div style="background: #f9fafc; border-left: 5px solid #FFD700; padding: 20px; border-radius: 16px; box-shadow: 0 6px 20px rgba(0,0,0,0.05);">
-    <h4 style="margin-top: 0; color: #0A1128;">Academic Records</h4>
-    <ul style="margin: 0; padding-left: 20px; line-height: 1.7;">
-      <li>SSLC / 10th Certificate</li>
-      <li>Plus Two Certificates</li>
-      <li>Marklists</li>
-    </ul>
-  </div>
-
-  <div style="background: #f9fafc; border-left: 5px solid #FFD700; padding: 20px; border-radius: 16px; box-shadow: 0 6px 20px rgba(0,0,0,0.05);">
-    <h4 style="margin-top: 0; color: #0A1128;">Institutional Certificates</h4>
-    <ul style="margin: 0; padding-left: 20px; line-height: 1.7;">
-      <li>Transfer Certificate</li>
-      <li>Conduct Certificate</li>
-      <li>Migration Certificate (if applicable)</li>
-    </ul>
-  </div>
-
-  <div style="background: #f9fafc; border-left: 5px solid #FFD700; padding: 20px; border-radius: 16px; box-shadow: 0 6px 20px rgba(0,0,0,0.05);">
-    <h4 style="margin-top: 0; color: #0A1128;">Category / Income</h4>
-    <ul style="margin: 0; padding-left: 20px; line-height: 1.7;">
-      <li>Community Certificate</li>
-      <li>Income Certificate</li>
-      <li>Non-Creamy Layer (if applicable)</li>
-    </ul>
-  </div>
-
-  <div style="background: #f9fafc; border-left: 5px solid #FFD700; padding: 20px; border-radius: 16px; box-shadow: 0 6px 20px rgba(0,0,0,0.05);">
-    <h4 style="margin-top: 0; color: #0A1128;">Personal</h4>
-    <ul style="margin: 0; padding-left: 20px; line-height: 1.7;">
-      <li>Passport-size Photos (4+)</li>
-      <li>Original Uploaded Docs</li>
-      <li>Fee Payment Receipt</li>
-      <li>Physical Fitness Certificate</li>
-    </ul>
-  </div>
-</div>
-
-<h2 style="font-family: 'Playfair Display', serif; font-size: 2.7rem; color: #0A1128; text-align: center; margin-top: 80px; margin-bottom: 35px;">💰 Fee Structure (At the Time of Admission)</h2>
-<table style="width: 100%; border-collapse: collapse; margin-top: 20px; font-family: 'Inter', sans-serif; font-size: 1rem;">
-  <thead>
-    <tr style="background-color: #0A1128; color: white;">
-      <th style="padding: 12px; text-align: left; border-radius: 8px 0 0 0;">Item</th>
-      <th style="padding: 12px; text-align: right; border-radius: 0 8px 0 0;">General</th>
-      <th style="padding: 12px; text-align: right;">SC/ST/OEC</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr style="background: #f5f7fa;">
-      <td style="padding: 12px;">Tuition Fee</td>
-      <td style="padding: 12px; text-align: right;">₹6,300</td>
-      <td style="padding: 12px; text-align: right;">–</td>
-    </tr>
-    <tr>
-      <td style="padding: 12px;">Admission Fee</td>
-      <td style="padding: 12px; text-align: right;">₹240</td>
-      <td style="padding: 12px; text-align: right;">–</td>
-    </tr>
-    <tr style="background: #f5f7fa;">
-      <td style="padding: 12px;">Special Fee</td>
-      <td style="padding: 12px; text-align: right;">₹1,740</td>
-      <td style="padding: 12px; text-align: right;">–</td>
-    </tr>
-    <tr>
-      <td style="padding: 12px;">PD/AD</td>
-      <td style="padding: 12px; text-align: right;">₹370</td>
-      <td style="padding: 12px; text-align: right;">–</td>
-    </tr>
-    <tr style="background: #f5f7fa;">
-      <td style="padding: 12px;">Caution Deposit</td>
-      <td style="padding: 12px; text-align: right;">₹1,000</td>
-      <td style="padding: 12px; text-align: right;">₹1,000</td>
-    </tr>
-    <tr>
-      <td style="padding: 12px;">Bus Fee</td>
-      <td style="padding: 12px; text-align: right;">₹1,300</td>
-      <td style="padding: 12px; text-align: right;">₹1,300</td>
-    </tr>
-    <tr style="background: #f5f7fa;">
-      <td style="padding: 12px;">Students Administration Fee (KTU)</td>
-      <td style="padding: 12px; text-align: right;">₹1,050</td>
-      <td style="padding: 12px; text-align: right;">–</td>
-    </tr>
-    <tr>
-      <td style="padding: 12px;">Arts & Sports Fee (KTU)</td>
-      <td style="padding: 12px; text-align: right;">₹530</td>
-      <td style="padding: 12px; text-align: right;">–</td>
-    </tr>
-    <tr style="background: #f5f7fa;">
-      <td style="padding: 12px;">Affiliation Fee</td>
-      <td style="padding: 12px; text-align: right;">₹750</td>
-      <td style="padding: 12px; text-align: right;">–</td>
-    </tr>
-    <tr style="font-weight: bold;">
-      <td style="padding: 12px;">Total</td>
-      <td style="padding: 12px; text-align: right;">₹13,280</td>
-      <td style="padding: 12px; text-align: right;">₹2,300</td>
-    </tr>
-  </tbody>
-</table>
-
-<h2 style="font-family: 'Playfair Display', serif; font-size: 2.5rem; color: #0A1128; text-align: center; margin-top: 60px;">📌 Additional Institutional Fees</h2>
-<table style="width: 100%; border-collapse: collapse; margin-top: 20px; font-family: 'Inter', sans-serif; font-size: 1rem;">
-  <thead>
-    <tr style="background-color: #0A1128; color: white;">
-      <th style="padding: 12px; text-align: left; border-radius: 8px 0 0 0;">Item</th>
-      <th style="padding: 12px; text-align: right; border-radius: 0 8px 0 0;">Amount</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr style="background: #f5f7fa;">
-      <td style="padding: 12px;">PTA Fund</td>
-      <td style="padding: 12px; text-align: right;">₹6,500</td>
-    </tr>
-    <tr>
-      <td style="padding: 12px;">Co-operative Membership</td>
-      <td style="padding: 12px; text-align: right;">₹210</td>
-    </tr>
-    <tr style="background: #f5f7fa;">
-      <td style="padding: 12px;">Students Welfare Fund</td>
-      <td style="padding: 12px; text-align: right;">₹2,300</td>
-    </tr>
-    <tr>
-      <td style="padding: 12px;">Alumni Fund</td>
-      <td style="padding: 12px; text-align: right;">₹1,000</td>
-    </tr>
-    <tr style="font-weight: bold;">
-      <td style="padding: 12px;">Total</td>
-      <td style="padding: 12px; text-align: right;">₹10,010</td>
-    </tr>
-  </tbody>
-</table>
-
-  </div>
-</section>
+</body>
+</html>
