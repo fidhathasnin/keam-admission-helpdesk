@@ -11,7 +11,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <!-- Fonts -->
  <link href="https://fonts.googleapis.com/css2?family=Bitcount+Grid+Single:wght@100..900&family=Bebas+Neue&family=Open+Sans&family=Poppins:wght@300;500;700&family=Raleway&display=swap" rel="stylesheet">
-<img src="https://cdn-icons-png.flaticon.com/32/2111/2111463.png" width="22" height="22">
+
 
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap');
@@ -54,7 +54,24 @@ h2 {
   margin-top: 15px;
   gap: 10px;
 }
+    .social-links {
+      margin-top: 15px;
+    }
 
+    .social-links a {
+      margin-right: 15px;
+      font-size: 22px;
+      color: #ffffff;
+      transition: transform 0.2s, color 0.2s;
+    }
+     .social-links a:hover {
+      transform: scale(1.15);
+      color: #0a66c2;
+    }
+  ul {
+      list-style-type: disc;
+      padding-left: 20px;
+    }
 /* Updated .subcommittee styles */
 .subcommittee {
   flex: 1;
@@ -285,7 +302,7 @@ body {
 }
 
 .volunteer-card a {
-  color: #91e2ff;
+  color: #ffffff;
   text-decoration: none;
   font-size: 1rem;
   transition: color 0.3s;
@@ -297,7 +314,8 @@ body {
 }
 
 .volunteer-card a:hover {
-  color: #ffffff;
+  transform: translateY(-8px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.5);
 }
 
 
@@ -747,8 +765,13 @@ body {
       <li>On/Off-stage Events</li>
       <li>Art Exhibitions</li>
     </ul>
-   
+     <div class="social-links" style="margin-top: 10px;">
+    <a href="https://www.instagram.com/shilpi_geck?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" style="font-size: 16px;">
+      <i class="fab fa-instagram"></i>
+    </a>
   </div>
+</div>
+  
 
   <div id="thanal-events" class="event-section">
     <span class="close-btn" onclick="closeModal(event)">×</span>
@@ -759,6 +782,15 @@ body {
       <li>Charitable Programs</li>
       <li>Students Empowerment Programs</li>
     </ul>
+   <div class="social-links" style="margin-top: 10px;">
+  <a href="https://www.instagram.com/thanalecs?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" style="font-size: 16px; margin-right: 10px;">
+    <i class="fab fa-instagram"></i>
+  </a>
+  <a href="https://www.facebook.com/thanalecs.geck.9" target="_blank" style="font-size: 16px;">
+    <i class="fab fa-facebook"></i>
+  </a>
+</div>
+
   </div>
 
   <div id="sahrdaya-events" class="event-section">
@@ -838,11 +870,8 @@ function closeModal(event) {
       <a href="https://www.instagram.com/udsfgeck" target="_blank" style="margin: 0 10px;">
         <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" width="30" height="30">
       </a>
-      <a href="https://www.facebook.com/" target="_blank" style="margin: 0 10px;">
+      <a href="https://www.facebook.com/udsfgeck" target="_blank" style="margin: 0 10px;">
         <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" width="30" height="30">
-      </a>
-      <a href="https://www.linkedin.com/" target="_blank" style="margin: 0 10px;">
-        <img src="https://cdn-icons-png.flaticon.com/512/3536/3536505.png" alt="LinkedIn" width="30" height="30">
       </a>
     </div>
   </div>
@@ -855,7 +884,7 @@ function closeModal(event) {
   <div class="volunteer-cards">
     <div class="volunteer-card">
       <h4>Farsin</h4>
-      <p><a href="tel:+919496482846">📞 +91-9947971399
+      <p><a href="tel:+919496482846">📞 +91-9947971399 </a>
     </div>
     <div class="volunteer-card">
       <h4>Fidha Thasni</h4>
