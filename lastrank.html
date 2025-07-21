@@ -234,7 +234,7 @@
       }
 
       if (eligible.length === 0) {
-        resultDiv.innerHTML = `❌ Sorry, no eligible branches for rank ${rank} in category ${category}.`;
+        resultDiv.innerHTML = `Chances are low for ${rank} in ${category}, but don’t lose hope. Keep checking — cutoffs can change in later rounds 🔄.`;
       } else {
         resultDiv.innerHTML = `<strong>✅ You are eligible for:</strong><ul>` + 
           eligible.map(e => `<li>${e}</li>`).join('') + `</ul>`;
