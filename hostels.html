@@ -1,185 +1,558 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>THE SECOND HOME</title>
-
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter&display=swap" rel="stylesheet">
-
+  <meta charset="UTF-8">
+  <title>Hostel Listings</title>
   <style>
-    :root {
-      --light-blue: #eaf4ff;
-      --hover-blue: #1a4f80;
-      --primary-blue: #1a4f80;
-    }
-
     body {
-      font-family: 'Inter', sans-serif;
       margin: 0;
-      padding: 20px;
-      background-color: #ffffff;
-      color: #222;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #e0f7fa, #ffffff);
+      color: #333;
     }
 
-    h1 {
-      font-family: 'Playfair Display', serif;
+    .page-title {
       text-align: center;
-      color: var(--primary-blue);
-      font-size: 36px;
-      margin-bottom: 20px;
+      font-size: 2.5rem;
+      font-weight: bold;
+      margin: 30px 0 10px;
+      color: #1f3b57;
     }
 
-    .filters {
-      max-width: 1000px;
-      margin: 0 auto 30px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      justify-content: center;
-    }
-
-    .filters input,
-    .filters select {
-      padding: 10px 14px;
-      border-radius: 12px;
-      border: 1px solid #ccc;
+    .back-button {
+      margin: 0 20px;
+      display: inline-block;
+      background-color: #1f3b57;
+      color: white;
+      padding: 8px 16px;
+      border-radius: 5px;
+      text-decoration: none;
       font-size: 14px;
     }
 
-    .hostel-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    .filter-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
       gap: 20px;
-      max-width: 1000px;
-      margin: 0 auto;
+      margin: 20px auto;
+      padding: 10px 20px;
+    }
+
+    .filter-group {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .filter-label {
+      font-weight: 600;
+      color: #1f3b57;
+      font-size: 1rem;
+    }
+
+    .custom-select,
+    .custom-range {
+      padding: 10px 14px;
+      border-radius: 8px;
+      border: 2px solid #4ca1af;
+      background-color: #f9f9f9;
+      color: #1f3b57;
+      font-size: 1rem;
+      font-weight: 500;
+      transition: border-color 0.3s ease;
+    }
+
+    .custom-select {
+      appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg%20fill%3D'%231f3b57'%20viewBox%3D'0%200%2020%2020'%20xmlns%3D'http://www.w3.org/2000/svg'%3E%3Cpath%20d%3D'M5.293%207.293a1%201%200%20011.414%200L10%2010.586l3.293-3.293a1%201%200%20111.414%201.414l-4%204a1%201%200%2001-1.414%200l-4-4a1%201%200%20010-1.414z'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 10px center;
+      background-size: 14px;
+      cursor: pointer;
+    }
+
+    .custom-select:focus,
+    .custom-range:focus,
+    .custom-select:hover,
+    .custom-range:hover {
+      border-color: #1f3b57;
+      outline: none;
+    }
+
+    .range-filter {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .hostel-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+      padding: 30px 20px;
     }
 
     .hostel-card {
-      background-color: var(--light-blue);
-      border-radius: 16px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 300px;
       overflow: hidden;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.06);
-      text-decoration: none;
-      color: inherit;
-      transition: background-color 0.3s ease, transform 0.2s ease, color 0.3s ease;
+      text-align: center;
+      transition: transform 0.2s ease;
     }
 
     .hostel-card:hover {
-      background-color: var(--hover-blue);
-      transform: translateY(-4px);
-    }
-
-    .hostel-card:hover .hostel-info h3,
-    .hostel-card:hover .hostel-info p {
-      color: #fff;
+      transform: scale(1.02);
     }
 
     .hostel-card img {
       width: 100%;
-      height: 160px;
+      height: 180px;
       object-fit: cover;
-      border-bottom: 1px solid #ccc;
     }
 
     .hostel-info {
-      padding: 16px;
-      transition: color 0.3s ease;
+      padding: 15px;
     }
 
     .hostel-info h3 {
-      margin: 0 0 8px;
-      font-size: 18px;
-      font-weight: 600;
-      color: #1a4f80;
+      margin: 10px 0 5px;
+      font-size: 20px;
     }
 
-    .hostel-info p {
-      margin: 0;
+    .hostel-info ul {
+      list-style: none;
+      padding: 0;
+      margin: 10px 0;
+    }
+
+    .hostel-info li {
       font-size: 14px;
-      color: #555;
+      margin-bottom: 5px;
     }
 
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 28px;
-      }
+    .hostel-info button {
+      padding: 8px 12px;
+      background-color: #1f3b57;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.7);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      position: relative;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      max-width: 90%;
+      max-height: 80%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .modal-content img {
+      max-height: 400px;
+      width: auto;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+
+    .close-button {
+      position: absolute;
+      top: 10px;
+      right: 15px;
+      font-size: 28px;
+      color: #1f3b57;
+      cursor: pointer;
+    }
+
+    .nav-buttons {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .nav-buttons button {
+      background-color: #1f3b57;
+      color: white;
+      padding: 8px 12px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
     }
   </style>
 </head>
 <body>
 
-  <h1>THE SECOND HOME</h1>
+  <h1 class="page-title">THE SECOND HOME</h1>
+  <a href="index.html" class="back-button">← Back</a>
 
-  <!-- 🔍 Filters -->
-  <div class="filters">
-    <input type="text" id="searchBar" placeholder="Search by name or keyword" />
-    
-    <select id="genderFilter">
-      <option value="">All Genders</option>
-      <option value="girls">Girls</option>
-      <option value="boys">Boys</option>
-    </select>
-    
-    <input type="number" id="feeFilter" placeholder="Max Rent (₹)" />
+  <!-- Filters -->
+  <div class="filter-container">
+    <div class="filter-group">
+      <label class="filter-label" for="genderFilter">Gender:</label>
+      <select id="genderFilter" class="custom-select" onchange="applyFilters()">
+         <option value="all">ALL</option>
+        <option value="girls">Girls</option>
+        <option value="boys">Boys</option>
+      </select>
+    </div>
+
+    <div class="range-filter">
+      <label class="filter-label" for="priceFilter">Max Price: ₹<span id="priceDisplay">7000</span></label>
+      <input type="range" id="priceFilter" min="2000" max="7000" value="7000" class="custom-range" oninput="updatePriceLabel(); applyFilters();">
+    </div>
   </div>
 
-  <!-- 🏠 Hostel Cards -->
-  <div class="hostel-grid" id="hostelList">
-
-    <a href="olive.html" class="hostel-card" data-gender="girls" data-fee="5200">
-      <img src="OLIVE.jpg" alt="Olive Girls PG">
+  <!-- Hostel Listings -->
+  <div class="hostel-grid" id="hostelGrid">
+    <!-- Example Card -->
+    <div class="hostel-card" data-gender="girls" data-price="5500">
+      <img src="images/QUEENS1.jpg" alt="Queens 1 Front View">
       <div class="hostel-info">
-        <h3>Olive Girls PG</h3>
-        <p>₹5200/month</p>
+        <h3>Queens 1 Girls PG</h3>
+        <p>₹5500/month</p>
+        <ul><li>WiFi</li><li>Spacious Study Area</li></ul>
+        <button onclick="openImageModal(['images/QUEENS1.jpg', 'images/QUEENS2.jpg', 'images/QUEENS3.jpg'])">View Photos</button>
       </div>
-    </a>
+    </div>
+<!-- New Hostel Card Example -->
+<div class="hostel-card" data-gender="girls" data-price="5500">
+  <img src="images/1CHINCHUS1.jpg" alt="Chinchus 1 Front View">
+  <div class="hostel-info">
+    <h3>Chinchus 1 Girls PG </h3>
+    <p>₹5500/month</p>
+    <ul>
+      <li>AC Rooms</li>
+      <li>Attached Bathrooms</li>
+    </ul>
+    <button onclick="openImageModal(['images/1CHINCHUS1.jpg', 'images/1CHINCHUS2.jpg', 'images/1CHINCHUS3.jpg', 'images/1CHINCHUS4.jpg'])">View Photos</button>
+  </div>
+</div>
 
-    <a href="greenstay.html" class="hostel-card" data-gender="boys" data-fee="4800">
-      <img src="GREENS.jpg" alt="Green Stay Hostel">
-      <div class="hostel-info">
-        <h3>Green Stay Hostel</h3>
-        <p>₹4800/month</p>
-      </div>
-    </a>
+<!-- Chinchus 2 Girls PG Hostel Card -->
+<div class="hostel-card" data-gender="girls" data-price="5500">
+  <img src="images/2CHINCHUS1.jpg" alt="Chinchus 2 Front View">
+  <div class="hostel-info">
+    <h3>Chinchus 2 Girls PG</h3>
+    <p>₹5500/month</p>
+    <ul>
+      <li>WiFi</li>
+      <li>Spacious Study Area</li>
+    </ul>
+    <button onclick="openImageModal(['images/2CHINCHUS1.jpg', 'images/2CHINCHUS2.jpg', 'images/2CHINCHUS3.jpg'])">View Photos</button>
+  </div>
+</div>
 
-    <!-- More hostel cards can go here -->
+<!-- Chinchus Boys PG Hostel Card -->
+<div class="hostel-card" data-gender="boys" data-price="6000">
+  <img src="images/bchinchus1.jpg" alt="Chinchus Boys PG Front View">
+  <div class="hostel-info">
+    <h3>Chinchus Boys PG</h3>
+    <p>₹6000/month</p>
+    <ul>
+      <li>WiFi</li>
+      <li>Spacious Study Area</li>
+      <li>Balcony</li>
+    </ul>
+    <button onclick="openImageModal([
+      'images/bchinchus1.jpg',
+      'images/bchinchus2.jpg',
+      'images/bchinchus3.jpg',
+      'images/bchinchus4.jpg',
+      'images/bchinchus5.jpg',
+      'images/bchinchus6.jpg'
+    ])">View Photos</button>
+  </div>
+</div>
+
+
+<!-- NEHA 1 Girls PG Hostel Card -->
+<div class="hostel-card" data-gender="girls" data-price="5500">
+  <img src="images/neha1.jpg" alt="Neha 1 Front View">
+  <div class="hostel-info">
+    <h3>NEHA 1 Girls PG</h3>
+    <p>₹5500/month</p>
+    <ul>
+      <li>WiFi</li>
+      <li>Spacious Study Area</li>
+    </ul>
+    <button onclick="openImageModal([
+      'images/neha1.jpg',
+      'images/1neha2.jpg',
+      'images/1neha3.jpg',
+      'images/1neha4.jpg',
+      'images/1neha5.jpg'
+    ])">View Photos</button>
+  </div>
+</div>
+<!-- NEHA 2 Girls PG Hostel Card -->
+<div class="hostel-card" data-gender="girls" data-price="5500">
+  <img src="images/2neha1.jpg" alt="Neha 2 Front View">
+  <div class="hostel-info">
+    <h3>NEHA 2 Girls PG</h3>
+    <p>₹5500/month</p>
+    <ul>
+      <li>WiFi</li>
+      <li>Spacious Study Area</li>
+    </ul>
+    <button onclick="openImageModal([
+      'images/2neha1.jpg',
+      'images/2neha2.jpg',
+      'images/2neha3.jpg',
+      'images/2neha4.jpg'
+    ])">View Photos</button>
+  </div>
+</div>
+
+<!-- Das Boys PG Hostel Card -->
+<div class="hostel-card" data-gender="boys" data-price="5000">
+  <img src="images/das1.jpg" alt="Das Boys PG Front View">
+  <div class="hostel-info">
+    <h3>Das Boys PG</h3>
+    <p>₹5000/month</p>
+    <ul>
+      <li>WiFi</li>
+      <li>Spacious Study Area</li>
+      <li>Balcony</li>
+    </ul>
+    <button onclick="openImageModal([
+      'images/das1.jpg',
+      'images/das2.jpg',
+      'images/das3.jpg'
+    ])">View Photos</button>
+  </div>
+</div>
+
+
+<!-- Olive 1 Girls PG Hostel Card -->
+<div class="hostel-card" data-gender="girls" data-price="5200">
+  <img src="images/1olive1.jpg" alt="Olive 1 Front View">
+  <div class="hostel-info">
+    <h3>Olive 1 Girls PG</h3>
+    <p>₹5200/month</p>
+    <ul>
+      <li>WiFi</li>
+      <li>Spacious Study Area</li>
+      <li>Balcony</li>
+    </ul>
+    <button onclick="openImageModal([
+      'images/1olive1.jpg',
+      'images/1olive2.jpg',
+      'images/1olive3.jpg',
+      'images/1olive4.jpg',
+      'images/1olive5.jpg'
+    ])">View Photos</button>
+  </div>
+</div>
+<!-- Olive 2 Girls PG Hostel Card -->
+<div class="hostel-card" data-gender="girls" data-price="5200">
+  <img src="images/2olive1.jpg" alt="Olive 2 Front View">
+  <div class="hostel-info">
+    <h3>Olive 2 Girls PG</h3>
+    <p>₹5200/month</p>
+    <ul>
+      <li>WiFi</li>
+      <li>Spacious Study Area</li>
+      <li>Balcony</li>
+    </ul>
+    <button onclick="openImageModal([
+      'images/2olive1.jpg',
+      'images/2olive2.jpg',
+      'images/2olive3.jpg',
+      'images/2olive4.jpg',
+      'images/2olive5.jpg',
+      'images/2olive6.jpg'
+    ])">View Photos</button>
+  </div>
+</div>
+<!-- Neha 1 Boys PG Hostel Card -->
+<div class="hostel-card" data-gender="boys" data-price="5500">
+  <img src="images/b1neha1.jpg" alt="Neha 1 Boys PG Front View">
+  <div class="hostel-info">
+    <h3>Neha 1 Boys PG</h3>
+    <p>₹5500/month</p>
+    <ul>
+      <li>WiFi</li>
+      <li>Spacious Study Area</li>
+      <li>Balcony</li>
+    </ul>
+    <button onclick="openImageModal([
+      'images/b1neha1.jpg',
+      'images/b1neha2.jpg',
+      'images/b1neha3.jpg',
+      'images/b1neha4.jpg',
+      'images/b1neha5.jpg'
+    ])">View Photos</button>
+  </div>
+</div>
+
+<!-- Udayam Girls PG Hostel Card -->
+<div class="hostel-card" data-gender="girls" data-price="5000">
+  <img src="images/udayam1.jpg" alt="Udayam Front View">
+  <div class="hostel-info">
+    <h3>Udayam Girls PG</h3>
+    <p>₹5000/month</p>
+    <ul>
+      <li>WiFi</li>
+      <li>Spacious Study Area</li>
+      <li>Balcony</li>
+    </ul>
+    <button onclick="openImageModal([
+      'images/udayam1.jpg',
+      'images/udayam2.jpg',
+      'images/udayam3.jpg',
+      'images/udayam4.jpg',
+      'images/udayam5.jpg'
+    ])">View Photos</button>
+  </div>
+</div>
+<!-- Neha 2 Boys PG Hostel Card -->
+<div class="hostel-card" data-gender="boys" data-price="5500">
+  <img src="images/b2neha1.jpg" alt="Neha 2 Boys PG Front View">
+  <div class="hostel-info">
+    <h3>Neha 2 Boys PG</h3>
+    <p>₹5500/month</p>
+    <ul>
+      <li>WiFi</li>
+      <li>Spacious Study Area</li>
+      <li>Balcony</li>
+    </ul>
+    <button onclick="openImageModal([
+      'images/b2neha1.jpg',
+      'images/b2neha2.jpg',
+      'images/b2neha3.jpg',
+      'images/b2neha4.jpg',
+      'images/b2neha5.jpg'
+    ])">View Photos</button>
+  </div>
+</div>
+<!-- Sherley Boys PG Hostel Card -->
+<div class="hostel-card" data-gender="boys" data-price="5000">
+  <img src="images/sherley1.jpg" alt="Sherley Boys PG Front View">
+  <div class="hostel-info">
+    <h3>Sherley Boys PG</h3>
+    <p>₹5000/month</p>
+    <ul>
+      <li>WiFi</li>
+      <li>Spacious Study Area</li>
+      <li>Balcony</li>
+    </ul>
+    <button onclick="openImageModal([
+      'images/sherley1.jpg',
+      'images/sherley2.jpg',
+      'images/sherley3.jpg'
+    ])">View Photos</button>
+  </div>
+</div>
+<!-- Shivrajan Boys PG Hostel Card -->
+<div class="hostel-card" data-gender="boys" data-price="5000">
+  <img src="images/shiv1.jpg" alt="Shivrajan Boys PG Front View">
+  <div class="hostel-info">
+    <h3>Shivrajan Boys PG</h3>
+    <p>₹5000/month</p>
+    <ul>
+      <li>WiFi</li>
+      <li>Spacious Study Area</li>
+      <li>Balcony</li>
+    </ul>
+    <button onclick="openImageModal([
+      'images/shiv1.jpg',
+      'images/shiv2.jpg',
+      'images/shiv3.jpg',
+      'images/shiv4.jpg',
+      'images/shiv5.jpg'
+    ])">View Photos</button>
+  </div>
+</div>
+
+
+
+
+    <!-- Duplicate cards omitted for brevity -->
   </div>
 
-  <!-- 🧠 JavaScript for Filtering -->
+  <!-- Modal -->
+  <div id="imageModal" class="modal">
+    <div class="modal-content">
+      <span class="close-button" onclick="closeImageModal()">&times;</span>
+      <img id="modalImage" src="" alt="Hostel Image">
+      <div class="nav-buttons">
+        <button onclick="prevImage()">Previous</button>
+        <button onclick="nextImage()">Next</button>
+      </div>
+    </div>
+  </div>
+
   <script>
-    const searchBar = document.getElementById("searchBar");
-    const genderFilter = document.getElementById("genderFilter");
-    const feeFilter = document.getElementById("feeFilter");
-    const hostelCards = document.querySelectorAll(".hostel-card");
+    let currentImages = [];
+    let currentIndex = 0;
 
-    function filterHostels() {
-      const searchValue = searchBar.value.toLowerCase();
-      const gender = genderFilter.value;
-      const feeLimit = parseInt(feeFilter.value || "99999");
-
-      hostelCards.forEach(card => {
-        const name = card.querySelector("h3").textContent.toLowerCase();
-        const desc = card.querySelector("p").textContent.toLowerCase();
-        const cardGender = card.getAttribute("data-gender");
-        const cardFee = parseInt(card.getAttribute("data-fee"));
-
-        const matchesSearch = name.includes(searchValue) || desc.includes(searchValue);
-        const matchesGender = !gender || cardGender === gender;
-        const matchesFee = cardFee <= feeLimit;
-
-        if (matchesSearch && matchesGender && matchesFee) {
-          card.style.display = "block";
-        } else {
-          card.style.display = "none";
-        }
-      });
+    function openImageModal(images) {
+      currentImages = images;
+      currentIndex = 0;
+      document.getElementById("modalImage").src = currentImages[currentIndex];
+      document.getElementById("imageModal").style.display = "flex";
     }
 
-    searchBar.addEventListener("input", filterHostels);
-    genderFilter.addEventListener("change", filterHostels);
-    feeFilter.addEventListener("input", filterHostels);
+    function closeImageModal() {
+      document.getElementById("imageModal").style.display = "none";
+    }
+
+    function nextImage() {
+      if (currentIndex < currentImages.length - 1) {
+        currentIndex++;
+        document.getElementById("modalImage").src = currentImages[currentIndex];
+      }
+    }
+
+    function prevImage() {
+      if (currentIndex > 0) {
+        currentIndex--;
+        document.getElementById("modalImage").src = currentImages[currentIndex];
+      }
+    }
+
+    function updatePriceLabel() {
+      document.getElementById('priceDisplay').innerText = document.getElementById('priceFilter').value;
+    }
+
+    function applyFilters() {
+      const gender = document.getElementById('genderFilter').value;
+      const maxPrice = parseInt(document.getElementById('priceFilter').value);
+      const cards = document.querySelectorAll('.hostel-card');
+
+      cards.forEach(card => {
+        const cardGender = card.getAttribute('data-gender');
+        const cardPrice = parseInt(card.getAttribute('data-price'));
+
+        const matchesGender = gender === 'all' || gender === cardGender;
+        const matchesPrice = cardPrice <= maxPrice;
+
+        card.style.display = matchesGender && matchesPrice ? 'block' : 'none';
+      });
+    }
   </script>
 
 </body>
